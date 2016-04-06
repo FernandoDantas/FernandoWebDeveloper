@@ -4,7 +4,7 @@
  * AdminCategory.class [ MODEL ADMIN ]
  * Responável por gerenciar as categorias do sistema no admin!
  * 
- * @copyright (c) 2014, Robson V. Leite UPINSIDE TECNOLOGIA
+ * @copyright (c) 2016, Fernando Dantas 
  */
 class AdminCategory {
 
@@ -14,7 +14,7 @@ class AdminCategory {
     private $Result;
 
     //Nome da tabela no banco de dados!
-    const Entity = 'ws_categories';
+    const Entity = 'fwd_categories';
 
     /**
      * <b>Cadastrar Categoria:</b> Envelope titulo, descrição, data e sessão em um array atribuitivo e execute esse método
@@ -26,7 +26,7 @@ class AdminCategory {
 
         if (in_array('', $this->Data)):
             $this->Result = false;
-            $this->Error = ['<b>Erro ao cadastrar:</b> Para cadastrar uma categoria, preencha todos os campos!', WS_ALERT];
+            $this->Error = ['<b>Erro ao cadastrar:</b> Para cadastrar uma categoria, preencha todos os campos!', FWD_ALERT];
         else:
             $this->setData();
             $this->setName();
@@ -46,7 +46,7 @@ class AdminCategory {
 
         if (in_array('', $this->Data)):
             $this->Result = false;
-            $this->Error = ["<b>Erro ao atualizar:</b> Para atualizar a categoria {$this->Data['category_title']}, preencha todos os campos!", WS_ALERT];
+            $this->Error = ["<b>Erro ao atualizar:</b> Para atualizar a categoria {$this->Data['category_title']}, preencha todos os campos!", FWD_ALERT];
         else:
             $this->setData();
             $this->setName();
@@ -67,22 +67,22 @@ class AdminCategory {
 
         if (!$read->getResult()):
             $this->Result = false;
-            $this->Error = ['Oppsss, você tentou remover uma categoria que não existe no sistema!', WS_INFOR];
+            $this->Error = ['Oppsss, você tentou remover uma categoria que não existe no sistema!', FWD_INFOR];
         else:
             extract($read->getResult()[0]);
             if (!$category_parent && !$this->checkCats()):
                 $this->Result = false;
-                $this->Error = ["A <b>seção {$category_title}</b> possui categorias cadastradas. Para deletar, antes altere ou remova as categorias filhas!", WS_ALERT];
+                $this->Error = ["A <b>seção {$category_title}</b> possui categorias cadastradas. Para deletar, antes altere ou remova as categorias filhas!", FWD_ALERT];
             elseif ($category_parent && !$this->checkPosts()):
                 $this->Result = false;
-                $this->Error = ["A <b>categoria {$category_title}</b> possui artigos cadastrados. Para deletar, antes altere ou remova todos os posts desta categoria!", WS_ALERT];
+                $this->Error = ["A <b>categoria {$category_title}</b> possui artigos cadastrados. Para deletar, antes altere ou remova todos os posts desta categoria!", FWD_ALERT];
             else:
                 $delete = new Delete;
                 $delete->ExeDelete(self::Entity, "WHERE category_id = :deletaid", "deletaid={$this->CatId}");
 
                 $tipo = ( empty($category_parent) ? 'seção' : 'categoria' );
                 $this->Result = true;
-                $this->Error = ["A <b>{$tipo} {$category_title}</b> foi removida com sucesso do sistema!", WS_ACCEPT];
+                $this->Error = ["A <b>{$tipo} {$category_title}</b> foi removida com sucesso do sistema!", FWD_ACCEPT];
             endif;
         endif;
     }
@@ -144,7 +144,7 @@ class AdminCategory {
     //Verifica artigos da categoria
     private function checkPosts() {
         $readPosts = new Read;
-        $readPosts->ExeRead("ws_posts", "WHERE post_category = :category", "category={$this->CatId}");
+        $readPosts->ExeRead("fwd_posts", "WHERE post_category = :category", "category={$this->CatId}");
         if ($readPosts->getResult()):
             return false;
         else:
@@ -158,7 +158,7 @@ class AdminCategory {
         $Create->ExeCreate(self::Entity, $this->Data);
         if ($Create->getResult()):
             $this->Result = $Create->getResult();
-            $this->Error = ["<b>Sucesso:</b> A categoria {$this->Data['category_title']} foi cadastrada no sistema!", WS_ACCEPT];
+            $this->Error = ["<b>Sucesso:</b> A categoria {$this->Data['category_title']} foi cadastrada no sistema!", FWD_ACCEPT];
         endif;
     }
 
@@ -169,7 +169,7 @@ class AdminCategory {
         if ($Update->getResult()):
             $tipo = ( empty($this->Data['category_parent']) ? 'seção' : 'categoria' );
             $this->Result = true;
-            $this->Error = ["<b>Sucesso:</b> A {$tipo} {$this->Data['category_title']} foi atualizada no sistema!", WS_ACCEPT];
+            $this->Error = ["<b>Sucesso:</b> A {$tipo} {$this->Data['category_title']} foi atualizada no sistema!", FWD_ACCEPT];
         endif;
     }
 

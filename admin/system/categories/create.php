@@ -23,7 +23,7 @@ endif;
             $cadastra->ExeCreate($data);
 
             if (!$cadastra->getResult()):
-                WSErro($cadastra->getError()[0], $cadastra->getError()[1]);
+                FWDErro($cadastra->getError()[0], $cadastra->getError()[1]);
             else:
                 header('Location: painel.php?exe=categories/update&create=true&catid=' . $cadastra->getResult());
             endif;
@@ -56,7 +56,7 @@ endif;
                         <option value="null"> Selecione a Seção: </option>
                         <?php
                         $readSes = new Read;
-                        $readSes->ExeRead("ws_categories", "WHERE category_parent IS NULL ORDER BY category_title ASC");
+                        $readSes->ExeRead("fwd_categories", "WHERE category_parent IS NULL ORDER BY category_title ASC");
                         if (!$readSes->getResult()):
                             echo '<option disabled="disabled" value="null"> Cadastre antes uma seção! </option>';
                         else:

@@ -7,7 +7,7 @@
         <?php
         $empty = filter_input(INPUT_GET, 'empty', FILTER_VALIDATE_BOOLEAN);
         if ($empty):
-            WSErro("Você tentou editar uma categoria que não existe no sistema!", WS_INFOR);
+            FWDErro("Você tentou editar uma categoria que não existe no sistema!", FWD_INFOR);
         endif;
 
         $delCat = filter_input(INPUT_GET, 'delete', FILTER_VALIDATE_INT);
@@ -21,7 +21,7 @@
 
 
         $readSes = new Read;
-        $readSes->ExeRead("ws_categories", "WHERE category_parent IS NULL ORDER BY category_title ASC");
+        $readSes->ExeRead("fwd_categories", "WHERE category_parent IS NULL ORDER BY category_title ASC");
         if (!$readSes->getResult()):
 
         else:
@@ -29,10 +29,10 @@
                 extract($ses);
 
                 $readPosts = new Read;
-                $readPosts->ExeRead("ws_posts", "WHERE post_cat_parent = :parent", "parent={$category_id}");
+                $readPosts->ExeRead("fwd_posts", "WHERE post_cat_parent = :parent", "parent={$category_id}");
 
                 $readCats = new Read;
-                $readCats->ExeRead("ws_categories", "WHERE category_parent = :parent", "parent={$category_id}");
+                $readCats->ExeRead("fwd_categories", "WHERE category_parent = :parent", "parent={$category_id}");
 
                 $countSesPosts = $readPosts->getRowCount();
                 $countSesCats = $readCats->getRowCount();
@@ -55,7 +55,7 @@
 
                     <?php
                     $readSub = new Read;
-                    $readSub->ExeRead("ws_categories", "WHERE category_parent = :subparent", "subparent={$category_id}");
+                    $readSub->ExeRead("fwd_categories", "WHERE category_parent = :subparent", "subparent={$category_id}");
                     if (!$readSub->getResult()):
 
                     else:
@@ -64,7 +64,7 @@
                             $a++;
 
                             $readCatPosts = new Read;
-                            $readCatPosts->ExeRead("ws_posts", "WHERE post_category = :categoryid", "categoryid={$sub['category_id']}");
+                            $readCatPosts->ExeRead("fwd_posts", "WHERE post_category = :categoryid", "categoryid={$sub['category_id']}");
                             ?>
                             <article<?php if ($a % 3 == 0) echo ' class="right"'; ?>>
                                 <h1><a target="_blank" href="../categoria/<?= $sub['category_name']; ?>" title="Ver Categoria"><?= $sub['category_title']; ?></a>  ( <?= $readCatPosts->getRowCount(); ?> posts )</h1>
