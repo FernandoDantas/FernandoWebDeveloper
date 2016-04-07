@@ -19,7 +19,7 @@
             $cadastra = new AdminPost;
             $cadastra->ExeUpdate($postid, $post);
 
-            WSErro($cadastra->getError()[0], $cadastra->getError()[1]);
+            FWDErro($cadastra->getError()[0], $cadastra->getError()[1]);
 
             if (!empty($_FILES['gallery_covers']['tmp_name'])):
                 $sendGallery = new AdminPost;
@@ -28,7 +28,7 @@
 
         else:
             $read = new Read;
-            $read->ExeRead("ws_posts", "WHERE post_id = :id", "id={$postid}");
+            $read->ExeRead("fwd_posts", "WHERE post_id = :id", "id={$postid}");
             if (!$read->getResult()):
                 header('Location: painel.php?exe=posts/index&empty=true');
             else:
@@ -39,7 +39,7 @@
 
         $checkCreate = filter_input(INPUT_GET, 'create', FILTER_VALIDATE_BOOLEAN);
         if ($checkCreate && empty($cadastra)):
-            WSErro("O post <b>{$post['post_title']}</b> foi cadastrado com sucesso no sistema!", WS_ACCEPT);
+            FWDErro("O post <b>{$post['post_title']}</b> foi cadastrado com sucesso no sistema!", FWD_ACCEPT);
         endif;
         ?>
 
@@ -78,12 +78,12 @@
                         <option value=""> Selecione a categoria: </option>                        
                         <?php
                         $readSes = new Read;
-                        $readSes->ExeRead("ws_categories", "WHERE category_parent IS NULL ORDER BY category_title ASC");
+                        $readSes->ExeRead("fwd_categories", "WHERE category_parent IS NULL ORDER BY category_title ASC");
                         if ($readSes->getRowCount() >= 1):
                             foreach ($readSes->getResult() as $ses):
                                 echo "<option disabled=\"disabled\" value=\"\"> {$ses['category_title']} </option>";
                                 $readCat = new Read;
-                                $readCat->ExeRead("ws_categories", "WHERE category_parent = :parent ORDER BY category_title ASC", "parent={$ses['category_id']}");
+                                $readCat->ExeRead("fwd_categories", "WHERE category_parent = :parent ORDER BY category_title ASC", "parent={$ses['category_id']}");
 
                                 if ($readCat->getRowCount() >= 1):
                                     foreach ($readCat->getResult() as $cat):
@@ -109,7 +109,7 @@
                         <option value="<?= $_SESSION['userlogin']['user_id']; ?>"> <?= "{$_SESSION['userlogin']['user_name']} {$_SESSION['userlogin']['user_lastname']}"; ?> </option>
                         <?php
                         $readAut = new Read;
-                        $readAut->ExeRead("ws_users", "WHERE user_id != :id AND user_level >= :level ORDER BY user_name ASC", "id={$_SESSION['userlogin']['user_id']}&level=2");
+                        $readAut->ExeRead("fwd_users", "WHERE user_id != :id AND user_level >= :level ORDER BY user_name ASC", "id={$_SESSION['userlogin']['user_id']}&level=2");
 
                         if ($readAut->getRowCount() >= 1):
                             foreach ($readAut->getResult() as $aut):
@@ -142,7 +142,7 @@
                     $DelGallery = new AdminPost;
                     $DelGallery->gbRemove($delGb);
 
-                    WSErro($DelGallery->getError()[0], $DelGallery->getError()[1]);
+                    FWDErro($DelGallery->getError()[0], $DelGallery->getError()[1]);
 
                 endif;
                 ?>
@@ -151,7 +151,7 @@
                     <?php
                     $gbi = 0;
                     $Gallery = new Read;
-                    $Gallery->ExeRead("ws_posts_gallery", "WHERE post_id = :post", "post={$postid}");
+                    $Gallery->ExeRead("fwd_posts_gallery", "WHERE post_id = :post", "post={$postid}");
                     if ($Gallery->getResult()):
                         foreach ($Gallery->getResult() as $gb):
                             $gbi++;

@@ -7,7 +7,7 @@
         <?php
         $empty = filter_input(INPUT_GET, 'empty', FILTER_VALIDATE_BOOLEAN);
         if ($empty):
-            WSErro("Oppsss: Você tentou editar um post que não existe no sistema!", WS_INFOR);
+            FWDErro("Oppsss: Você tentou editar um post que não existe no sistema!", FWD_INFOR);
         endif;
 
 
@@ -21,21 +21,21 @@
             switch ($action):
                 case 'active':
                     $postUpdate->ExeStatus($postAction, '1');
-                    WSErro("O status do post foi atualizado para <b>ativo</b>. Post publicado!", WS_ACCEPT);
+                    FWDErro("O status do post foi atualizado para <b>ativo</b>. Post publicado!", FWD_ACCEPT);
                     break;
 
                 case 'inative':
                     $postUpdate->ExeStatus($postAction, '0');
-                    WSErro("O status do post foi atualizado para <b>inativo</b>. Post agora é um rascunho!", WS_ALERT);
+                    FWDErro("O status do post foi atualizado para <b>inativo</b>. Post agora é um rascunho!", FWD_ALERT);
                     break;
 
                 case 'delete':
                     $postUpdate->ExeDelete($postAction);
-                    WSErro($postUpdate->getError()[0], $postUpdate->getError()[1]);
+                    FWDErro($postUpdate->getError()[0], $postUpdate->getError()[1]);
                     break;
 
                 default :
-                    WSErro("Ação não foi identifica pelo sistema, favor utilize os botões!", WS_ALERT);
+                    FWDErro("Ação não foi identifica pelo sistema, favor utilize os botões!", FWD_ALERT);
             endswitch;
         endif;
 
@@ -46,7 +46,7 @@
         $Pager->ExePager($getPage, 10);
 
         $readPosts = new Read;
-        $readPosts->ExeRead("ws_posts", "ORDER BY post_status ASC, post_date DESC LIMIT :limit OFFSET :offset", "limit={$Pager->getLimit()}&offset={$Pager->getOffset()}");
+        $readPosts->ExeRead("fwd_posts", "ORDER BY post_status ASC, post_date DESC LIMIT :limit OFFSET :offset", "limit={$Pager->getLimit()}&offset={$Pager->getOffset()}");
         if ($readPosts->getResult()):
             foreach ($readPosts->getResult() as $post):
                 $posti++;
@@ -80,7 +80,7 @@
 
         else:
             $Pager->ReturnPage();
-            WSErro("Desculpe, ainda não existem posts cadastrados!", WS_INFOR);
+            FWDErro("Desculpe, ainda não existem posts cadastrados!", FWD_INFOR);
         endif;
         ?>
 
@@ -88,7 +88,7 @@
     </section>
 
     <?php
-    $Pager->ExePaginator("ws_posts");
+    $Pager->ExePaginator("fwd_posts");
     echo $Pager->getPaginator();
     ?>
 

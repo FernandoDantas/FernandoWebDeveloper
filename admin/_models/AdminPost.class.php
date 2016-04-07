@@ -4,7 +4,7 @@
  * AdminPost.class [ MODEL ADMIN ]
  * Respnsável por gerenciar os posts no Admin do sistema!
  * 
- * @copyright (c) 2014, Robson V. Leite UPINSIDE TECNOLOGIA
+ * @copyright (c) 2016, Fernando Dantas
  */
 class AdminPost {
 
@@ -14,7 +14,7 @@ class AdminPost {
     private $Result;
 
     //Nome da tabela no banco de dados
-    const Entity = 'ws_posts';
+    const Entity = 'fwd_posts';
 
     /**
      * <b>Cadastrar o Post:</b> Envelope os dados do post em um array atribuitivo e execute esse método
@@ -25,7 +25,7 @@ class AdminPost {
         $this->Data = $Data;
 
         if (in_array('', $this->Data)):
-            $this->Error = ["Erro ao cadastrar: Para criar um post, favor preencha todos os campos!", WS_ALERT];
+            $this->Error = ["Erro ao cadastrar: Para criar um post, favor preencha todos os campos!", FWD_ALERT];
             $this->Result = false;
         else:
             $this->setData();
@@ -57,7 +57,7 @@ class AdminPost {
         $this->Data = $Data;
 
         if (in_array('', $this->Data)):
-            $this->Error = ["Para atualizar este post, preencha todos os campos ( Capa não precisa ser enviada! )", WS_ALERT];
+            $this->Error = ["Para atualizar este post, preencha todos os campos ( Capa não precisa ser enviada! )", FWD_ALERT];
             $this->Result = false;
         else:
             $this->setData();
@@ -97,7 +97,7 @@ class AdminPost {
         $ReadPost->ExeRead(self::Entity, "WHERE post_id = :post", "post={$this->Post}");
 
         if (!$ReadPost->getResult()):
-            $this->Error = ["O post que você tentou deletar não existe no sistema!", WS_ERROR];
+            $this->Error = ["O post que você tentou deletar não existe no sistema!", FWD_ERROR];
             $this->Result = false;
         else:
             $PostDelete = $ReadPost->getResult()[0];
@@ -106,7 +106,7 @@ class AdminPost {
             endif;
 
             $readGallery = new Read;
-            $readGallery->ExeRead("ws_posts_gallery", "WHERE post_id = :id", "id={$this->Post}");
+            $readGallery->ExeRead("fwd_posts_gallery", "WHERE post_id = :id", "id={$this->Post}");
             if ($readGallery->getResult()):
                 foreach ($readGallery->getResult() as $gbdel):
                     if (file_exists('../uploads/' . $gbdel['gallery_image']) && !is_dir('../uploads/' . $gbdel['gallery_image'])):
@@ -116,10 +116,10 @@ class AdminPost {
             endif;
 
             $deleta = new Delete;
-            $deleta->ExeDelete("ws_posts_gallery", "WHERE post_id = :gbpost", "gbpost={$this->Post}");
+            $deleta->ExeDelete("fwd_posts_gallery", "WHERE post_id = :gbpost", "gbpost={$this->Post}");
             $deleta->ExeDelete(self::Entity, "WHERE post_id = :postid", "postid={$this->Post}");
 
-            $this->Error = ["O post <b>{$PostDelete['post_title']}</b> foi removido com sucesso do sistema!", WS_ACCEPT];
+            $this->Error = ["O post <b>{$PostDelete['post_title']}</b> foi removido com sucesso do sistema!", FWD_ACCEPT];
             $this->Result = true;
 
         endif;
@@ -152,7 +152,7 @@ class AdminPost {
         $ImageName->ExeRead(self::Entity, "WHERE post_id = :id", "id={$this->Post}");
 
         if (!$ImageName->getResult()):
-            $this->Error = ["Erro ao enviar galeria. O índice {$this->Post} não foi encontrado no banco!", WS_ERROR];
+            $this->Error = ["Erro ao enviar galeria. O índice {$this->Post} não foi encontrado no banco!", FWD_ERROR];
             $this->Result = false;
         else:
             $ImageName = $ImageName->getResult()[0]['post_name'];
@@ -180,14 +180,14 @@ class AdminPost {
                     $gbImage = $gbSend->getResult();
                     $gbCreate = ['post_id' => $this->Post, "gallery_image" => $gbImage, "gallery_date" => date('Y-m-d H:i:s')];
                     $insertGb = new Create;
-                    $insertGb->ExeCreate("ws_posts_gallery", $gbCreate);
+                    $insertGb->ExeCreate("fwd_posts_gallery", $gbCreate);
                     $u++;
                 endif;
 
             endforeach;
 
             if ($u > 1):
-                $this->Error = ["Galeria Atualizada: Foram enviadas {$u} imagens para galeria deste post!", WS_ACCEPT];
+                $this->Error = ["Galeria Atualizada: Foram enviadas {$u} imagens para galeria deste post!", FWD_ACCEPT];
                 $this->Result = true;
             endif;
         endif;
@@ -201,7 +201,7 @@ class AdminPost {
     public function gbRemove($GbImageId) {
         $this->Post = (int) $GbImageId;
         $readGb = new Read;
-        $readGb->ExeRead("ws_posts_gallery", "WHERE gallery_id = :gb", "gb={$this->Post}");
+        $readGb->ExeRead("fwd_posts_gallery", "WHERE gallery_id = :gb", "gb={$this->Post}");
         if ($readGb->getResult()):
 
             $Imagem = '../uploads/' . $readGb->getResult()[0]['gallery_image'];
@@ -211,9 +211,9 @@ class AdminPost {
             endif;
 
             $Deleta = new Delete;
-            $Deleta->ExeDelete("ws_posts_gallery", "WHERE gallery_id = :id", "id={$this->Post}");
+            $Deleta->ExeDelete("fwd_posts_gallery", "WHERE gallery_id = :id", "id={$this->Post}");
             if ($Deleta->getResult()):
-                $this->Error = ["A imagem foi removida com sucesso da galeria!", WS_ACCEPT];
+                $this->Error = ["A imagem foi removida com sucesso da galeria!", FWD_ACCEPT];
                 $this->Result = true;
             endif;
 
@@ -263,7 +263,7 @@ class AdminPost {
     //Obtem o ID da categoria PAI
     private function getCatParent() {
         $rCat = new Read;
-        $rCat->ExeRead("ws_categories", "WHERE category_id = :id", "id={$this->Data['post_category']}");
+        $rCat->ExeRead("fwd_categories", "WHERE category_id = :id", "id={$this->Data['post_category']}");
         if ($rCat->getResult()):
             return $rCat->getResult()[0]['category_parent'];
         else:
@@ -286,7 +286,7 @@ class AdminPost {
         $cadastra = new Create;
         $cadastra->ExeCreate(self::Entity, $this->Data);
         if ($cadastra->getResult()):
-            $this->Error = ["O post {$this->Data['post_title']} foi cadastrado com sucesso no sistema!", WS_ACCEPT];
+            $this->Error = ["O post {$this->Data['post_title']} foi cadastrado com sucesso no sistema!", FWD_ACCEPT];
             $this->Result = $cadastra->getResult();
         endif;
     }
@@ -296,7 +296,7 @@ class AdminPost {
         $Update = new Update;
         $Update->ExeUpdate(self::Entity, $this->Data, "WHERE post_id = :id", "id={$this->Post}");
         if ($Update->getResult()):
-            $this->Error = ["O post <b>{$this->Data['post_title']}</b> foi atualizado com sucesso no sistema!", WS_ACCEPT];
+            $this->Error = ["O post <b>{$this->Data['post_title']}</b> foi atualizado com sucesso no sistema!", FWD_ACCEPT];
             $this->Result = true;
         endif;
     }

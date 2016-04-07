@@ -26,7 +26,7 @@
 
                 header('Location: painel.php?exe=posts/update&create=true&postid=' . $cadastra->getResult());
             else:
-                WSErro($cadastra->getError()[0], $cadastra->getError()[1]);
+                FWDErro($cadastra->getError()[0], $cadastra->getError()[1]);
             endif;
         endif;
         ?>
@@ -66,12 +66,12 @@
                         <option value=""> Selecione a categoria: </option>                        
                         <?php
                         $readSes = new Read;
-                        $readSes->ExeRead("ws_categories", "WHERE category_parent IS NULL ORDER BY category_title ASC");
+                        $readSes->ExeRead("fwd_categories", "WHERE category_parent IS NULL ORDER BY category_title ASC");
                         if ($readSes->getRowCount() >= 1):
                             foreach ($readSes->getResult() as $ses):
                                 echo "<option disabled=\"disabled\" value=\"\"> {$ses['category_title']} </option>";
                                 $readCat = new Read;
-                                $readCat->ExeRead("ws_categories", "WHERE category_parent = :parent ORDER BY category_title ASC", "parent={$ses['category_id']}");
+                                $readCat->ExeRead("fwd_categories", "WHERE category_parent = :parent ORDER BY category_title ASC", "parent={$ses['category_id']}");
 
                                 if ($readCat->getRowCount() >= 1):
                                     foreach ($readCat->getResult() as $cat):
@@ -97,7 +97,7 @@
                         <option value="<?= $_SESSION['userlogin']['user_id']; ?>"> <?= "{$_SESSION['userlogin']['user_name']} {$_SESSION['userlogin']['user_lastname']}"; ?> </option>
                         <?php
                         $readAut = new Read;
-                        $readAut->ExeRead("ws_users", "WHERE user_id != :id AND user_level >= :level ORDER BY user_name ASC", "id={$_SESSION['userlogin']['user_id']}&level=2");
+                        $readAut->ExeRead("fwd_users", "WHERE user_id != :id AND user_level >= :level ORDER BY user_name ASC", "id={$_SESSION['userlogin']['user_id']}&level=2");
 
                         if ($readAut->getRowCount() >= 1):
                             foreach ($readAut->getResult() as $aut):
