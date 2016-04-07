@@ -50,12 +50,12 @@
             <div class="label_line">
                 <label class="label_medium">
                     <span class="field">Site da Empresa:</span>
-                    <input type="url" placeholder="http://www.upinside.com.br" name="empresa_site" value="<?php if (isset($data['empresa_site'])) echo $data['empresa_site']; ?>" />
+                    <input type="url" placeholder="http://www.fernandowebdeveloper.com.br" name="empresa_site" value="<?php if (isset($data['empresa_site'])) echo $data['empresa_site']; ?>" />
                 </label>
 
                 <label class="label_medium">
                     <span class="field">Facebook Page:</span>
-                    <input type="text" placeholder="upinside" name="empresa_facebook" value="<?php if (isset($data['empresa_facebook'])) echo $data['empresa_facebook']; ?>" />
+                    <input type="text" placeholder="fernando" name="empresa_facebook" value="<?php if (isset($data['empresa_facebook'])) echo $data['empresa_facebook']; ?>" />
                 </label>                
             </div><!-- line -->
 
