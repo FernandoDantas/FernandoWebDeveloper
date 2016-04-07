@@ -1,10 +1,28 @@
 <?php
-//CONFIGURAÇÕES DO SITE ####################
-define('HOME', 'http://localhost/FernandoWebDeveloper');
+//CONFIGURAÇÕES DO BANCO ####################
 define('HOST','localhost');
 define('USER','root');
 define('PASS','');
 define('DBSA','fwd');
+
+
+// DEFINE SERVIDOR DE E-MAIL ################
+define('MAILUSER', 'fernando@fernandowebdeveloper.com.br');
+define('MAILPASS', '123456');
+define('MAILPORT', '2525');
+define('MAILHOST', 'mx1.hostinger.com.br');
+
+// DEFINE IDENTIDADE DO SITE ################
+define('SITENAME', 'Fernando Web Developer');
+define('SITEDESC', 'Tenha seu site pessoal, blog ou até mesmo um aplicativo ou sistema web personalizado para sua empresa!! Desenvolvido com a arquitetura semântica do HTML5 e criado com as últimas técnologias disponíveis!');
+
+// DEFINE A BASE DO SITE ####################
+define('HOME', 'http://localhost/FernandoWebDeveloper');
+define('THEME', 'FernandoWebDeveloper');
+
+define('INCLUDE_PATH', HOME . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . THEME);
+define('REQUIRE_PATH', 'themes' . DIRECTORY_SEPARATOR . THEME);
+
 
 //AUTO LOAD DE CLASSES  ####################
 function __autoload($Class){

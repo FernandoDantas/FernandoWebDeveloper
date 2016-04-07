@@ -4,7 +4,7 @@
  * Seo [ MODEL ]
  * Classe de apoio para o modelo LINK. Pode ser utilizada para gerar SSEO para as páginas do sistema!
  * 
- * @copyright (c) 2014, Fernando Dantas
+ * @copyright (c) 2016, Fernando Dantas
  */
 class Seo {
 
@@ -118,7 +118,7 @@ class Seo {
             case 'empresas':
                 $Name = ucwords(str_replace("-", " ", $this->Link));
                 $this->seoData = ["empresa_link" => $this->Link, "empresa_cat" => $Name];
-                $this->Data = ["Empresas {$this->Link}" . SITENAME, "Confira o guia completo de sua cidade, e encontra empresas {$this->Link}.", HOME . '/empresas/' . $this->Link, INCLUDE_PATH . '/images/site.png'];
+                $this->Data = ["Empresas {$this->Link}" . SITENAME, "Confira o guia completo de sua cidade, e encontre empresas {$this->Link}.", HOME . '/empresas/' . $this->Link, INCLUDE_PATH . '/images/site.png'];
                 break;
 
             //SEO:: EMPRESA SINGLE
@@ -144,7 +144,7 @@ class Seo {
 
             //SEO:: CADASTRA EMPRESA
             case 'cadastra-empresa':
-                $this->Data = ["Cadastre sua Empresa - " . SITENAME, "Página modelo para cadastro de empresas via Front-End do curso Work Series - PHP Orientado a Objetos!", HOME . '/cadastra-empresa/' . $this->Link, INCLUDE_PATH . '/images/site.png'];
+                $this->Data = ["Cadastre sua Empresa - " . SITENAME, "Página modelo para cadastro de empresas via Front-End no nosso sistema!", HOME . '/cadastra-empresa/' . $this->Link, INCLUDE_PATH . '/images/site.png'];
                 break;
 
             //SEO:: INDEX
