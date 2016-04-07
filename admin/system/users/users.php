@@ -10,7 +10,7 @@
             require('_models/AdminUser.class.php');
             $delUser = new AdminUser;
             $delUser->ExeDelete($delete);
-            WSErro($delUser->getError()[0], $delUser->getError()[1]);
+            FWDErro($delUser->getError()[0], $delUser->getError()[1]);
         endif;
         ?>
 
@@ -27,7 +27,7 @@
 
             <?php
             $read = new Read;
-            $read->ExeRead("ws_users", "ORDER BY user_level DESC, user_name ASC");
+            $read->ExeRead("fwd_users", "ORDER BY user_level DESC, user_name ASC");
             if ($read->getResult()):
                 foreach ($read->getResult() as $user):
                     extract($user);

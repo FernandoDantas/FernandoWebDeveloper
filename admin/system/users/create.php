@@ -16,7 +16,7 @@
             if ($cadastra->getResult()):
                 header("Location: painel.php?exe=users/update&create=true&userid={$cadastra->getResult()}");
             else:
-                WSErro($cadastra->getError()[0], $cadastra->getError()[1]);
+                FWDErro($cadastra->getError()[0], $cadastra->getError()[1]);
             endif;
         endif;
         ?>

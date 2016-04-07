@@ -19,9 +19,9 @@
             $cadastra->ExeUpdate($userId, $ClienteData);
 
             if ($cadastra->getResult()):
-                WSErro("Seus dados foram atualizados com sucesso! <i>O sistema será atualizado no próximo login!!!</i>", WS_ACCEPT);
+                FWDErro("Seus dados foram atualizados com sucesso! <i>O sistema será atualizado no próximo login!!!</i>", FWD_ACCEPT);
             else:
-                WSErro($cadastra->getError()[0], $cadastra->getError()[1]);
+                FWDErro($cadastra->getError()[0], $cadastra->getError()[1]);
             endif;
         else:
             extract($_SESSION['userlogin']);

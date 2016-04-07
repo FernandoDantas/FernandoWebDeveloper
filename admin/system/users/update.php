@@ -15,10 +15,10 @@
             $cadastra = new AdminUser;
             $cadastra->ExeUpdate($userId, $ClienteData);
 
-            WSErro($cadastra->getError()[0], $cadastra->getError()[1]);
+            FWDErro($cadastra->getError()[0], $cadastra->getError()[1]);
         else:
             $ReadUser = new Read;
-            $ReadUser->ExeRead("ws_users", "WHERE user_id = :userid", "userid={$userId}");
+            $ReadUser->ExeRead("fwd_users", "WHERE user_id = :userid", "userid={$userId}");
             if (!$ReadUser->getResult()):
 
             else:
@@ -29,7 +29,7 @@
 
         $checkCreate = filter_input(INPUT_GET, 'create', FILTER_VALIDATE_BOOLEAN);
         if ($checkCreate && empty($cadastra)):
-            WSErro("O usuário <b>{$ClienteData['user_name']}</b> foi cadastrado com sucesso no sistema!", WS_ACCEPT);
+            FWDErro("O usuário <b>{$ClienteData['user_name']}</b> foi cadastrado com sucesso no sistema!", FWD_ACCEPT);
         endif;
         ?>
 
