@@ -24,10 +24,10 @@ endif;
             $cadastra = new AdminCategory;
             $cadastra->ExeUpdate($catid, $data);
 
-            WSErro($cadastra->getError()[0], $cadastra->getError()[1]);
+            FWDErro($cadastra->getError()[0], $cadastra->getError()[1]);
         else:
             $read = new Read;
-            $read->ExeRead("ws_categories", "WHERE category_id = :id", "id={$catid}");
+            $read->ExeRead("fwd_categories", "WHERE category_id = :id", "id={$catid}");
             if (!$read->getResult()):
                 header('Location: painel.php?exe=categories/index&empty=true');
             else:
@@ -38,7 +38,7 @@ endif;
         $checkCreate = filter_input(INPUT_GET, 'create', FILTER_VALIDATE_BOOLEAN);
         if($checkCreate && empty($cadastra)):
             $tipo = ( empty($data['category_parent']) ? 'seção' : 'categoria');
-            WSErro("A {$tipo} <b>{$data['category_title']}</b> foi cadastrada com sucesso no sistema! Continue atualizando a mesma!", WS_ACCEPT);
+            FWDErro("A {$tipo} <b>{$data['category_title']}</b> foi cadastrada com sucesso no sistema! Continue atualizando a mesma!", FWD_ACCEPT);
         endif;
         
         ?>
@@ -69,7 +69,7 @@ endif;
                         <option value="null"> Selecione a Seção: </option>
                         <?php
                         $readSes = new Read;
-                        $readSes->ExeRead("ws_categories", "WHERE category_parent IS NULL ORDER BY category_title ASC");
+                        $readSes->ExeRead("fwd_categories", "WHERE category_parent IS NULL ORDER BY category_title ASC");
                         if (!$readSes->getResult()):
                             echo '<option disabled="disabled" value="null"> Cadastre antes uma seção! </option>';
                         else:

@@ -16,7 +16,7 @@
             $deletar = new AdminCategory;
             $deletar->ExeDelete($delCat);
             
-            WSErro($deletar->getError()[0], $deletar->getError()[1]);
+            FWDErro($deletar->getError()[0], $deletar->getError()[1]);
         endif;
 
 
@@ -51,7 +51,7 @@
                         </ul>
                     </header>
 
-                    <h2>Sub categorias de vídeo aulas:</h2>
+                    <h2>Sub categorias:</h2>
 
                     <?php
                     $readSub = new Read;
