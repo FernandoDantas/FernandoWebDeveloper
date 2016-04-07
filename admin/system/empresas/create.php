@@ -18,7 +18,7 @@
             $cadastra->ExeCreate($data);
 
             if (!$cadastra->getResult()):
-                WSErro($cadastra->getError()[0], $cadastra->getError()[1]);
+                FWDErro($cadastra->getError()[0], $cadastra->getError()[1]);
             else:
                 header("Location:painel.php?exe=empresas/update&create=true&emp={$cadastra->getResult()}");
             endif;

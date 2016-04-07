@@ -4,7 +4,7 @@
  * AdminEmpresa.class [ MODEL ADMIN ]
  * Responável por gerenciar as empresas no admin do sistema!
  * 
- * @copyright (c) 2014, Robson V. Leite UPINSIDE TECNOLOGIA
+ * @@copyright (c) 2016, Fernando Dantas
  */
 class AdminEmpresa {
 
@@ -24,7 +24,7 @@ class AdminEmpresa {
     public function ExeCreate(array $Data) {
         $this->Data = $Data;
         if (in_array('', $this->Data)):
-            $this->Error = ["Erro ao Cadastrar: Para cadastrar uma empresa, preencha todos os campos!", WS_ALERT];
+            $this->Error = ["Erro ao Cadastrar: Para cadastrar uma empresa, preencha todos os campos!", FWD_ALERT];
             $this->Result = false;
         else:
             $this->setData();
@@ -44,7 +44,7 @@ class AdminEmpresa {
         $this->Empresa = (int) $EmpresaId;
         $this->Data = $Data;
         if (in_array('', $this->Data)):
-            $this->Error = ["Erro ao Atualizar: Para atualizar <b>{$this->Data['empresa_title']}</b>, preencha todos os campos!", WS_ALERT];
+            $this->Error = ["Erro ao Atualizar: Para atualizar <b>{$this->Data['empresa_title']}</b>, preencha todos os campos!", FWD_ALERT];
             $this->Result = false;
         else:
             $this->setData();
@@ -65,7 +65,7 @@ class AdminEmpresa {
         $ReadEmp = new Read;
         $ReadEmp->ExeRead(self::Entity, "WHERE empresa_id = :emp", "emp={$this->Empresa}");
         if (!$ReadEmp->getResult()):
-            $this->Error = ["A empresa que você tentou deletar não existe no sistema!", WS_ERROR];
+            $this->Error = ["A empresa que você tentou deletar não existe no sistema!", FWD_ERROR];
             $this->Result = false;
         else:
             $EmpDelete = $ReadEmp->getResult()[0];
@@ -76,7 +76,7 @@ class AdminEmpresa {
             $deleta = new Delete;
             $deleta->ExeDelete(self::Entity, "WHERE empresa_id = :emp", "emp={$this->Empresa}");
 
-            $this->Error = ["A empresa <b>{$EmpDelete['empresa_title']}</b> foi removida com sucesso do sistema!", WS_ACCEPT];
+            $this->Error = ["A empresa <b>{$EmpDelete['empresa_title']}</b> foi removida com sucesso do sistema!", FWD_ACCEPT];
             $this->Result = true;
         endif;
     }
@@ -140,7 +140,7 @@ class AdminEmpresa {
             list($w, $h) = getimagesize($this->Data['empresa_capa']['tmp_name']);
 
             if ($w != '578' || $h != '288'):
-                $this->Error = ['Capa Inválida: A Capa da empresa deve ter exatamente 578x288px do tipo .JPG, .PNG ou .GIF!', WS_INFOR];
+                $this->Error = ['Capa Inválida: A Capa da empresa deve ter exatamente 578x288px do tipo .JPG, .PNG ou .GIF!', FWD_INFOR];
                 $this->Result = false;
             else:
                 $this->checkCover();
@@ -177,7 +177,7 @@ class AdminEmpresa {
         $Create->ExeCreate(self::Entity, $this->Data);
         if ($Create->getResult()):
             $this->Result = $Create->getResult();
-            $this->Error = ["A empresa <b>{$this->Data['empresa_title']}</b> foi cadastrada com sucesso no sistema!", WS_ACCEPT];
+            $this->Error = ["A empresa <b>{$this->Data['empresa_title']}</b> foi cadastrada com sucesso no sistema!", FWD_ACCEPT];
         endif;
     }
 
@@ -186,7 +186,7 @@ class AdminEmpresa {
         $Update = new Update;
         $Update->ExeUpdate(self::Entity, $this->Data, "WHERE empresa_id = :id", "id={$this->Empresa}");
         if ($Update->getRowCount() >= 1):
-            $this->Error = ["A Empresa <b>{$this->Data['empresa_title']}</b> foi atualizada com sucesso!", WS_ACCEPT];
+            $this->Error = ["A Empresa <b>{$this->Data['empresa_title']}</b> foi atualizada com sucesso!", FWD_ACCEPT];
             $this->Result = true;
         endif;
     }

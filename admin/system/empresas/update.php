@@ -19,7 +19,7 @@
             $cadastra = new AdminEmpresa;
             $cadastra->ExeUpdate($empresa, $data);
 
-            WSErro($cadastra->getError()[0], $cadastra->getError()[1]);
+            FWDErro($cadastra->getError()[0], $cadastra->getError()[1]);
         else:
             $readEmp = new Read;
             $readEmp->ExeRead("app_empresas", "WHERE empresa_id = :emp", "emp={$empresa}");
@@ -32,7 +32,7 @@
 
         $checkCreate = filter_input(INPUT_GET, 'create', FILTER_VALIDATE_BOOLEAN);
         if ($checkCreate && empty($cadastra)):
-            WSErro("A empresa <b>{$data['empresa_title']}</b> foi cadastrada com sucesso no sistema!", WS_ACCEPT);
+            FWDErro("A empresa <b>{$data['empresa_title']}</b> foi cadastrada com sucesso no sistema!", FWD_ACCEPT);
         endif;
         ?>
 

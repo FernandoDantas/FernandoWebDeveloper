@@ -7,7 +7,7 @@
         <?php
         $empty = filter_input(INPUT_GET, 'empty', FILTER_VALIDATE_BOOLEAN);
         if ($empty):
-            WSErro("Oppsss: Você tentou editar uma empresa que não existe no sistema!", WS_INFOR);
+            FWDErro("Oppsss: Você tentou editar uma empresa que não existe no sistema!", FWD_INFOR);
         endif;
 
         $action = filter_input(INPUT_GET, 'action', FILTER_DEFAULT);
@@ -20,21 +20,21 @@
             switch ($action):
                 case 'active':
                     $empUpdate->ExeStatus($empAction, '1');
-                    WSErro("O status da empresa foi atualizado para <b>ativo</b>. Empresa publicado!", WS_ACCEPT);
+                    FWDErro("O status da empresa foi atualizado para <b>ativo</b>. Empresa publicado!", FWD_ACCEPT);
                     break;
 
                 case 'inative':
                     $empUpdate->ExeStatus($empAction, '0');
-                    WSErro("O status da empresa foi atualizado para <b>inativo</b>. Empresa agora é um rascunho!", WS_ALERT);
+                    FWDErro("O status da empresa foi atualizado para <b>inativo</b>. Empresa agora é um rascunho!", FWD_ALERT);
                     break;
 
                 case 'delete':
                     $empUpdate->ExeDelete($empAction);
-                    WSErro($empUpdate->getError()[0], $empUpdate->getError()[1]);
+                    FWDErro($empUpdate->getError()[0], $empUpdate->getError()[1]);
                     break;
 
                 default :
-                    WSErro("Ação não foi identifica pelo sistema, favor utilize os botões!", WS_ALERT);
+                    FWDErro("Ação não foi identifica pelo sistema, favor utilize os botões!", FWD_ALERT);
             endswitch;
         endif;
 
@@ -90,7 +90,7 @@
             endforeach;
         else:
             $Pager->ReturnPage();
-            WSErro("Desculpe, ainda não existem empresas cadastradas!", WS_INFOR);
+            FWDErro("Desculpe, ainda não existem empresas cadastradas!", FWD_INFOR);
         endif;
         ?>
 
