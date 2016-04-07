@@ -52,7 +52,7 @@
             $read->FullRead("SELECT SUM(agent_views) AS TotalViews FROM fwd_siteviews_agent");
             $TotalViews = $read->getResult()[0]['TotalViews'];
 
-            $read->ExeRead("fwd_siteviews_agent", "ORDER BY agent_views DESC LIMIT 3");
+            $read->ExeRead("fwd_siteviews_agent", "ORDER BY agent_views DESC LIMIT 4");
             if (!$read->getResult()):
                 FWDErro("Oppsss, Ainda não existem estatísticas de navegadores!", FWD_INFOR);
             else:
