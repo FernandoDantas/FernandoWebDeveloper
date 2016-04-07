@@ -44,7 +44,7 @@
                         <p class="tagline"><?= $category_content; ?></p>
 
                         <ul class="info post_actions">
-                            <li><strong>Data:</strong> <?= date('d/m/Y H:i', strtotime($category_date)); ?>Hs</li>
+                            <li><strong>Data:</strong> <?= date('d/m/Y H:i:s', strtotime($category_date)); ?>Hs</li>
                             <li><a class="act_view" target="_blank" href="../categoria/<?= $category_name; ?>" title="Ver no site">Ver no site</a></li>
                             <li><a class="act_edit" href="painel.php?exe=categories/update&catid=<?= $category_id; ?>" title="Editar">Editar</a></li>
                             <li><a class="act_delete" href="painel.php?exe=categories/index&delete=<?= $category_id; ?>" title="Excluir">Deletar</a></li>
@@ -70,7 +70,7 @@
                                 <h1><a target="_blank" href="../categoria/<?= $sub['category_name']; ?>" title="Ver Categoria"><?= $sub['category_title']; ?></a>  ( <?= $readCatPosts->getRowCount(); ?> posts )</h1>
 
                                 <ul class="info post_actions">
-                                    <li><strong>Data:</strong> <?= date('d/m/Y H:i', strtotime($sub['category_date'])); ?>Hs</li>
+                                    <li><strong>Data:</strong> <?= date('d/m/Y H:i:s', strtotime($sub['category_date'])); ?>Hs</li>
                                     <li><a class="act_view" target="_blank" href="../categoria/<?= $sub['category_name']; ?>" title="Ver no site">Ver no site</a></li>
                                     <li><a class="act_edit" href="painel.php?exe=categories/update&catid=<?= $sub['category_id']; ?>" title="Editar">Editar</a></li>
                                     <li><a class="act_delete" href="painel.php?exe=categories/index&delete=<?= $sub['category_id']; ?>" title="Excluir">Deletar</a></li>
