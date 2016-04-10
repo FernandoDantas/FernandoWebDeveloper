@@ -10,7 +10,25 @@ $Session = new Session;
 
         <!--[if lt IE 9]>
             <script src="../../_cdn/html5.js"></script>
-         <![endif]-->   
+         <![endif]-->  
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Fernando Web Developer :: Desnvolvimento de sites e sistemas web</title>        
+        <meta name="description" content="Tenha seu site pessoal, blog ou até mesmo um aplicativo ou sistema web personalizado para sua empresa!! "/>
+        <meta name="keywords" content="Desenvolvimento de sistemas web, Sites e aplicativos mobile."/>
+        <meta name="robots" content="index, follow"/>        
+
+        <link rel="author" href="https://plus.google.com/u/0/103537220638041176724/posts"/>
+        <link rel="publisher" href="https://plus.google.com/103537220638041176724"/>
+        <link rel="canonical" href="http://localhost/www.fernandowebdeveloper.com.br/"/>
+
+        <meta itemprop="name" content="Fernando Web Developer"/>
+        <meta itemprop="description" content="Fernando Web Developer"/>
+        <meta itemprop="image" content="images/index.jpg"/>
+        <meta itemprop="url" content="http://localhost/www.fernandowebdeveloper.com.br/"/> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">        
+        <link rel="icon" href="images/favicon.png">
 
         <?php
         $Link = new Link;
@@ -20,19 +38,19 @@ $Session = new Session;
         
         <link rel="stylesheet" href="<?= INCLUDE_PATH; ?>/css/style.css">
         <link rel="stylesheet" href="<?= HOME; ?>/_cdn/shadowbox/shadowbox.css">
-        <link href='http://fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
+        <link  href="https://fonts.googleapis.com/css?family=Lato:400,300,700"  rel="stylesheet" type="text/css">
 
     </head>
     <body>
 
         <?php
-        //require(REQUIRE_PATH . '/inc/header.inc.php');
+        require(REQUIRE_PATH . '/inc/header.inc.php');
 
         if (!require($Link->getPatch())):
             FWDErro('Erro ao incluir arquivo de navegação!', FWD_ERROR, true);
         endif;
 
-        //require(REQUIRE_PATH . '/inc/footer.inc.php');
+        require(REQUIRE_PATH . '/inc/footer.inc.php');
         ?>
 
     </body>
