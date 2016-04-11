@@ -28,7 +28,7 @@ $Session = new Session;
         <meta itemprop="image" content="images/index.jpg"/>
         <meta itemprop="url" content="http://localhost/www.fernandowebdeveloper.com.br/"/> 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">        
-        <link rel="icon" href="images/favicon.png">
+        <link type="image/png" rel="icon" href="<?= INCLUDE_PATH; ?>/images/favicon.png">
 
         <?php
         $Link = new Link;
@@ -36,7 +36,7 @@ $Session = new Session;
         ?>
 
         
-        <link rel="stylesheet" href="<?= INCLUDE_PATH; ?>/css/style.css">
+        <link rel="stylesheet" type="text/css" href="<?= INCLUDE_PATH; ?>/css/style.css">
         <link rel="stylesheet" href="<?= HOME; ?>/_cdn/shadowbox/shadowbox.css">
         <link  href="https://fonts.googleapis.com/css?family=Lato:400,300,700"  rel="stylesheet" type="text/css">
 

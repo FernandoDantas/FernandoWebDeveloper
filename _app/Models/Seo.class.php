@@ -68,7 +68,7 @@ class Seo {
                 $Admin = (isset($_SESSION['userlogin']['user_level']) && $_SESSION['userlogin']['user_level'] == 3 ? true : false);
                 $Check = ($Admin ? '' : 'post_status = 1 AND');
 
-                $ReadSeo->ExeRead("ws_posts", "WHERE {$Check} post_name = :link", "link={$this->Link}");
+                $ReadSeo->ExeRead("fwd_posts", "WHERE {$Check} post_name = :link", "link={$this->Link}");
                 if (!$ReadSeo->getResult()):
                     $this->seoData = null;
                     $this->seoTags = null;
@@ -80,13 +80,13 @@ class Seo {
                     //post:: conta views do post
                     $ArrUpdate = ['post_views' => $post_views + 1];
                     $Update = new Update();
-                    $Update->ExeUpdate("ws_posts", $ArrUpdate, "WHERE post_id = :postid", "postid={$post_id}");
+                    $Update->ExeUpdate("fwd_posts", $ArrUpdate, "WHERE post_id = :postid", "postid={$post_id}");
                 endif;
                 break;
 
             //SEO:: CATEGORIA
             case 'categoria':
-                $ReadSeo->ExeRead("ws_categories", "WHERE category_name = :link", "link={$this->Link}");
+                $ReadSeo->ExeRead("fwd_categories", "WHERE category_name = :link", "link={$this->Link}");
                 if (!$ReadSeo->getResult()):
                     $this->seoData = null;
                     $this->seoTags = null;
@@ -98,13 +98,13 @@ class Seo {
                     //category:: conta views da categoria
                     $ArrUpdate = ['category_views' => $category_views + 1];
                     $Update = new Update();
-                    $Update->ExeUpdate("ws_categories", $ArrUpdate, "WHERE category_id = :catid", "catid={$category_id}");
+                    $Update->ExeUpdate("fwd_categories", $ArrUpdate, "WHERE category_id = :catid", "catid={$category_id}");
                 endif;
                 break;
 
             //SEO:: PESQUISA
             case 'pesquisa':
-                $ReadSeo->ExeRead("ws_posts", "WHERE post_status = 1 AND (post_title LIKE '%' :link '%' OR post_content LIKE '%' :link '%')", "link={$this->Link}");
+                $ReadSeo->ExeRead("fwd_posts", "WHERE post_status = 1 AND (post_title LIKE '%' :link '%' OR post_content LIKE '%' :link '%')", "link={$this->Link}");
                 if (!$ReadSeo->getResult()):
                     $this->seoData = null;
                     $this->seoTags = null;
