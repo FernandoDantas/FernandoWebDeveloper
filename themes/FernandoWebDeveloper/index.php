@@ -7,7 +7,16 @@
             <div class="slide_nav back"><</div>
             <div class="slide_nav go">></div>
         </div>
-
+        
+        <?php
+        $cat = Check::CatByName('noticias');
+        $post = new Read;
+        $post->ExeRead("fwd_posts", "WHERE post_status = 1 AND (post_cat_parent = :cat OR post_category = :cat) ORDER BY post_date DESC LIMIT :limit OFFSET :offset", "cat={$cat}&limit=3&offset=0");
+        if(!$post->getResult()):
+            FWDErro('Desculpe, ainda não existem noticias cadastradas. Favor volte mais tarde!', FWD_INFOR);
+        else: 
+        ?>
+        
         <article class="slide_item first">
             <a href="#ver" title="Para Fortaleza">
                 <picture alt="Para Fortaleza">    
@@ -28,11 +37,13 @@
                 <p class="tagline">diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
             </div>
         </article>
-
-        <article class="slide_item">
+        <?php
+          endif;
+        ?>
+<!--        <article class="slide_item">
             <a href="#ver" title="Para Punta Cana">
                 <picture alt="Para Punta Cana">
-                    <!--[if IE 9]><video style="display: none;"><![endif]-->
+                    [if IE 9]><video style="display: none;"><![endif]
                     <source media="(min-width: 1600px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/02.jpg&w=2000&h=600"/>
                     <source media="(min-width: 1366px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/02.jpg&w=1600&h=600"/>
                     <source media="(min-width: 1280px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/02.jpg&w=1366&h=400"/>
@@ -40,7 +51,7 @@
                     <source media="(min-width: 768px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/02.jpg&w=960&h=260"/>
                     <source media="(min-width: 480px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/02.jpg&w=800&h=300"/>
                     <source media="(min-width: 1px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/02.jpg&w=480&h=380"/>
-                    <!--[if IE 9]></video><![endif]-->                  
+                    [if IE 9]></video><![endif]                  
                     <img srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/02.jpg&w=1600&h=600, <?= INCLUDE_PATH; ?>/uploads/02.jpg&w=2000&h=600 2x" src="<?= INCLUDE_PATH; ?>/uploads/02.jpg" alt="[Punta Cana]" title="Punta Cana"/>
                 </picture>                        
             </a>
@@ -53,7 +64,7 @@
         <article class="slide_item">
             <a href="#ver" title="Para Veneza">
                 <picture alt="Para Veneza">    
-                    <!--[if IE 9]><video style="display: none;"><![endif]-->
+                    [if IE 9]><video style="display: none;"><![endif]
                     <source media="(min-width: 1600px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/03.jpg&w=2000&h=600"/>
                     <source media="(min-width: 1366px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/03.jpg&w=1600&h=600"/>
                     <source media="(min-width: 1280px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/03.jpg&w=1366&h=400"/>
@@ -61,7 +72,7 @@
                     <source media="(min-width: 768px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/03.jpg&w=960&h=260"/>
                     <source media="(min-width: 480px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/03.jpg&w=800&h=300"/>
                     <source media="(min-width: 1px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/03.jpg&w=480&h=380"/>    
-                    <!--[if IE 9]></video><![endif]--> 
+                    [if IE 9]></video><![endif] 
                     <img srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/03.jpg&w=1600&h=600, <?= INCLUDE_PATH; ?>/uploads/03.jpg&w=2000&h=600 2x" src="<?= INCLUDE_PATH; ?>/uploads/03.jpg" alt="[Veneza]" title="Veneza"/>                            
                 </picture>                        
             </a>
@@ -69,7 +80,7 @@
                 <h1><a href="#ver" title="Para Veneza">Um destino mais romântico para curtir a 2? Nada melhor que a linda veneza!</a></h1>
                 <p class="tagline">diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
             </div>
-        </article>
+        </article>-->
     </section> <!-- FECHA SLIDE -->
 
     <section class="more_news container">

@@ -37,7 +37,6 @@ $Session = new Session;
 
         
         <link rel="stylesheet" type="text/css" href="<?= INCLUDE_PATH; ?>/css/style.css">
-<!--        <link rel="stylesheet" type="text/css" href="<?= INCLUDE_PATH; ?>/css/boot.css">-->
         <link rel="stylesheet" href="<?= HOME; ?>/_cdn/shadowbox/shadowbox.css">
         <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
 

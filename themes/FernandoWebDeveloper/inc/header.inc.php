@@ -30,7 +30,7 @@
                     <li class="main_header_nav_sub_item"><a href="http://localhost/cursos/ws_rwd/06-mobile-first" title="Categoria 5">Categoria 5</a>
                 </ul>
             </li>
-            <li class="main_header_nav_item"><a href="http://localhost/cursos/ws_rwd/06-mobile-first" title="Contato | Feranando Web Developer">Contato</a></li>
+            <li class="main_header_nav_item"><a href="<?=HOME;?>/contato" title="Contato | Feranando Web Developer">Contato</a></li>
         </ul>
         <div class="clear"></div>
     </div>

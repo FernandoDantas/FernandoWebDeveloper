@@ -175,3 +175,21 @@ input.btn{width: auto; cursor: pointer;}
     .content,  .more_and_gallery,  .slide_controll, .slide_item_desc{width: 76%; margin: 0 12%;}    
     .slide_controll{ top: 38%;}
 }
+
+/*CONTATO*/
+.title-section{font-size: 1.125em; font-weight: 300; color: #555; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #555;}
+.limpar{background-color: #AF0000;}
+.enviar{background-color: #1a5977;}
+.btn{color: #fff; margin-top: 4px; border: none;}
+.google-maps { overflow:hidden; padding-bottom:16.20%; position:relative; height:0; !important}
+.google-maps iframe {left:0; top:0; height:100%; width:100%; position:absolute;}
+
+/*MENSAGENS DO SISTEMA DE CONTATO*/
+.trigger{padding: 15px; background: #eee; font-size: 14px; margin-bottom: 15px; color: #fff !important;}
+.trigger a{font-weight: 600; font-size: 12px; text-transform: uppercase; padding: 5px 15px; background: #069; color: #fff;}
+.trigger a:hover{background: #09f; color: #fff;}
+
+.accept{background: #71ca73;}
+.infor{background:  #c8dbfd;}
+.alert{background:  #000000;}
+.error{background:  #ffafaf;}

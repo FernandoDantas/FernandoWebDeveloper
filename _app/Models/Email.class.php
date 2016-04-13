@@ -141,7 +141,7 @@ class Email {
     //Envia o e-mail!
     private function sendMail() {
         if ($this->Mail->Send()):
-            $this->Error = ['Obrigado por entrar em contato: Recebemos sua mensagem e estaremos respondendo em breve!', FWD_ACCEPT];
+            $this->Error = ['Obrigado por entrar em contato: Recebemos sua mensagem e estaremos respondendo em breve!!', FWD_ACCEPT];
             $this->Result = true;
         else:
             $this->Error = ["Erro ao enviar: Entre em contato com o admin. ( {$this->Mail->ErrorInfo} )", FWD_ERROR];

@@ -149,7 +149,7 @@ class Seo {
 
             //SEO:: INDEX
             case 'index':
-                $this->Data = [SITENAME . ' - Seu guia de empresas, eventos e baladas!', SITEDESC, HOME, INCLUDE_PATH . '/images/site.png'];
+                $this->Data = [SITENAME . ' - Fernando Web developer desenvolvimento de sistemas Web e Mobile!', SITEDESC, HOME, INCLUDE_PATH . '/images/site.png'];
                 break;
 
             //SEO:: 404
