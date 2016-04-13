@@ -4,7 +4,7 @@ require('./_app/Config.inc.php');
 $Session = new Session;
 ?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" itemscope itemtype="https://schema.org/Article">
     <head>
         <meta charset="UTF-8">
 
@@ -37,8 +37,9 @@ $Session = new Session;
 
         
         <link rel="stylesheet" type="text/css" href="<?= INCLUDE_PATH; ?>/css/style.css">
+<!--        <link rel="stylesheet" type="text/css" href="<?= INCLUDE_PATH; ?>/css/boot.css">-->
         <link rel="stylesheet" href="<?= HOME; ?>/_cdn/shadowbox/shadowbox.css">
-        <link  href="https://fonts.googleapis.com/css?family=Lato:400,300,700"  rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
 
     </head>
     <body>
@@ -62,6 +63,7 @@ $Session = new Session;
     <script src="<?= HOME ?>/_cdn/_plugins.conf.js"></script>
     <script src="<?= HOME ?>/_cdn/_scripts.conf.js"></script>
     <script src="<?= HOME ?>/_cdn/combo.js"></script>
+    <script src="<?= HOME ?>/_cdn/picturefill.min.js" async></script>
 </html>
 <?php
 ob_end_flush();
