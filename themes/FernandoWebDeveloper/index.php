@@ -1,86 +1,32 @@
- 
-<main class="main_content container">
-    <section class="slide container">
-        <h1 class="fontzero">Ultimas do Site:</h1>
+<?php
+$View = new View;
+$tpl_g = $View->Load('article_g');
+?>
 
+<main class="main_content container">      
+
+    <h1 class="fontzero">Ultimas do Site:</h1>
+    <section class="slide container">
         <div class="slide_controll">
             <div class="slide_nav back"><</div>
             <div class="slide_nav go">></div>
         </div>
-        
         <?php
         $cat = Check::CatByName('noticias');
         $post = new Read;
         $post->ExeRead("fwd_posts", "WHERE post_status = 1 AND (post_cat_parent = :cat OR post_category = :cat) ORDER BY post_date DESC LIMIT :limit OFFSET :offset", "cat={$cat}&limit=3&offset=0");
-        if(!$post->getResult()):
+        if (!$post->getResult()):
             FWDErro('Desculpe, ainda não existem noticias cadastradas. Favor volte mais tarde!', FWD_INFOR);
-        else: 
+        else:
+            foreach ($post->getResult() as $Slide):
+                $Slide['post_title'] = Check::Words($Slide['post_title'], 12);
+                $Slide['post_content'] = Check::Words($Slide['post_content'], 38);                
+                $Slide['datetime'] = date('Y-m-d', strtotime($Slide['post_date']));
+                $Slide['pubdate'] = date('d/m/Y H:i:s', strtotime($Slide['post_date']));                
+                $View->Show($Slide, $tpl_g);
+            endforeach;
+        endif;
         ?>
-        
-        <article class="slide_item first">
-            <a href="#ver" title="Para Fortaleza">
-                <picture alt="Para Fortaleza">    
-                    <!--[if IE 9]><video style="display: none;"><![endif]-->
-                    <source data-src="1600" media="(min-width: 1600px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/01.jpg&w=2000&h=600"/>
-                    <source media="(min-width: 1366px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/01.jpg&w=1600&h=600"/>
-                    <source media="(min-width: 1280px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/01.jpg&w=1366&h=400"/>
-                    <source media="(min-width: 960px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/01.jpg&w=1280&h=600"/>
-                    <source media="(min-width: 768px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/01.jpg&w=960&h=260"/>
-                    <source media="(min-width: 480px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/01.jpg&w=800&h=300"/>
-                    <source media="(min-width: 1px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/01.jpg&w=480&h=380"/> 
-                    <!--[if IE 9]></video><![endif]-->
-                    <img srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/01.jpg&w=1600&h=600,<?= INCLUDE_PATH; ?>/uploads/01.jpg&w=2000&h=600 2x" src="<?= INCLUDE_PATH; ?>/uploads/01.jpg" alt="Para Fortaleza" title="Para Fortaleza"/>
-                </picture>
-            </a>
-            <div class="slide_item_desc">
-                <h1><a href="#ver" title="Para Fortaleza">Que tal uma linda viajem por fortaleza para curtir e recordar? conheça o melhor daqui!</a></h1>
-                <p class="tagline">diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-            </div>
-        </article>
-        <?php
-          endif;
-        ?>
-<!--        <article class="slide_item">
-            <a href="#ver" title="Para Punta Cana">
-                <picture alt="Para Punta Cana">
-                    [if IE 9]><video style="display: none;"><![endif]
-                    <source media="(min-width: 1600px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/02.jpg&w=2000&h=600"/>
-                    <source media="(min-width: 1366px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/02.jpg&w=1600&h=600"/>
-                    <source media="(min-width: 1280px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/02.jpg&w=1366&h=400"/>
-                    <source media="(min-width: 960px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/02.jpg&w=1280&h=600"/>
-                    <source media="(min-width: 768px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/02.jpg&w=960&h=260"/>
-                    <source media="(min-width: 480px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/02.jpg&w=800&h=300"/>
-                    <source media="(min-width: 1px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/02.jpg&w=480&h=380"/>
-                    [if IE 9]></video><![endif]                  
-                    <img srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/02.jpg&w=1600&h=600, <?= INCLUDE_PATH; ?>/uploads/02.jpg&w=2000&h=600 2x" src="<?= INCLUDE_PATH; ?>/uploads/02.jpg" alt="[Punta Cana]" title="Punta Cana"/>
-                </picture>                        
-            </a>
-            <div class="slide_item_desc">
-                <h1><a href="#ver" title="Para Punta Cana">Quer descansar e curtir? Um lindo hotel em punta cana é uma ótima opção para você!</a></h1>
-                <p class="tagline">diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-            </div>
-        </article>
-
-        <article class="slide_item">
-            <a href="#ver" title="Para Veneza">
-                <picture alt="Para Veneza">    
-                    [if IE 9]><video style="display: none;"><![endif]
-                    <source media="(min-width: 1600px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/03.jpg&w=2000&h=600"/>
-                    <source media="(min-width: 1366px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/03.jpg&w=1600&h=600"/>
-                    <source media="(min-width: 1280px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/03.jpg&w=1366&h=400"/>
-                    <source media="(min-width: 960px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/03.jpg&w=1280&h=600"/>
-                    <source media="(min-width: 768px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/03.jpg&w=960&h=260"/>
-                    <source media="(min-width: 480px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/03.jpg&w=800&h=300"/>
-                    <source media="(min-width: 1px)" srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/03.jpg&w=480&h=380"/>    
-                    [if IE 9]></video><![endif] 
-                    <img srcset="tim.php?src=<?= INCLUDE_PATH; ?>/uploads/03.jpg&w=1600&h=600, <?= INCLUDE_PATH; ?>/uploads/03.jpg&w=2000&h=600 2x" src="<?= INCLUDE_PATH; ?>/uploads/03.jpg" alt="[Veneza]" title="Veneza"/>                            
-                </picture>                        
-            </a>
-            <div class="slide_item_desc">
-                <h1><a href="#ver" title="Para Veneza">Um destino mais romântico para curtir a 2? Nada melhor que a linda veneza!</a></h1>
-                <p class="tagline">diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-            </div>
-        </article>-->
     </section> <!-- FECHA SLIDE -->
 
     <section class="more_news container">
