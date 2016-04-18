@@ -11,7 +11,7 @@ $Session = new Session;
         <!--[if lt IE 9]>
             <script src="../../_cdn/html5.js"></script>
          <![endif]-->  
-        
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Fernando Web Developer :: Desnvolvimento de sites e sistemas web</title>        
@@ -27,7 +27,8 @@ $Session = new Session;
         <meta itemprop="description" content="Fernando Web Developer"/>
         <meta itemprop="image" content="images/index.jpg"/>
         <meta itemprop="url" content="http://localhost/www.fernandowebdeveloper.com.br/"/> 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">         
+        <link  href="https://fonts.googleapis.com/css?family=Lato:400,300,700"  rel="stylesheet" type="text/css">
         <link type="image/png" rel="icon" href="<?= INCLUDE_PATH; ?>/images/favicon.png">
 
         <?php
@@ -35,7 +36,7 @@ $Session = new Session;
         $Link->getTags();
         ?>
 
-        
+
         <link rel="stylesheet" type="text/css" href="<?= INCLUDE_PATH; ?>/css/style.css">
         <link rel="stylesheet" href="<?= HOME; ?>/_cdn/shadowbox/shadowbox.css">
         <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
@@ -63,6 +64,7 @@ $Session = new Session;
     <script src="<?= HOME ?>/_cdn/_scripts.conf.js"></script>
     <script src="<?= HOME ?>/_cdn/combo.js"></script>
     <script src="<?= HOME ?>/_cdn/picturefill.min.js" async></script>
+    <script src="<?= HOME ?>/_cdn/scripts.js"></script>
 </html>
 <?php
 ob_end_flush();

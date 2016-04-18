@@ -1,4 +1,4 @@
-<main class="main_content container" id="contato">
+<section class="container" id="contato">
     <div class="content">
         <header class="title-section">
             <h1>Fale Conosco:</h1>
@@ -23,7 +23,7 @@
         endif;
         ?>
         <div class="google-maps">   
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.256937764295!2d-35.90154562803202!3d-7.211502957310619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ac1fccedd2b511%3A0xffb8da60d386431d!2sR.+Diogo+da+Costa+-+Monte+Santo%2C+Campina+Grande+-+PB%2C+58400-733!5e0!3m2!1spt-BR!2sbr!4v1460555001818" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.256937764295!2d-35.90154562803202!3d-7.211502957310619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ac1fccedd2b511%3A0xffb8da60d386431d!2sR.+Diogo+da+Costa+-+Monte+Santo%2C+Campina+Grande+-+PB%2C+58400-733!5e0!3m2!1spt-BR!2sbr!4v1460555001818" width="300" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
         <form name="FormContato" action="#contato" method="post" class="form">
             <fieldset class="form_left">
@@ -48,9 +48,7 @@
                     <input class="btn enviar" type="submit" value="Enviar Dados" name="SendFormContato" title="Enviar Dados"/>
                 </div>
             </fieldset>
-        </form>
-
-        <div class="clear"></div>
+        </form>       
     </div>
 
-</main>
+</section>
