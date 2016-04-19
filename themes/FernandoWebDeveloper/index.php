@@ -5,26 +5,29 @@ $tpl_ultimas = $View->Load('article_ultimas');
 ?>
 
 <!--INICIO DO BANNER-->
-<?php
-$cat = Check::CatByName('noticias');
-$post = new Read;
-$post->ExeRead("fwd_posts", "WHERE post_status = 1 AND (post_cat_parent = :cat OR post_category = :cat) ORDER BY post_date DESC LIMIT :limit OFFSET :offset", "cat={$cat}&limit=1&offset=0");
-if (!$post->getResult()):
-    FWDErro('Desculpe, ainda não existem noticias cadastradas. Favor volte mais tarde!', FWD_INFOR);
-else:
-    foreach ($post->getResult() as $Slide):
-        $Slide['post_title'] = Check::Words($Slide['post_title'], 4);
-        $Slide['post_content'] = Check::Words($Slide['post_content'], 38);
-        $Slide['datetime'] = date('Y-m-d', strtotime($Slide['post_date']));
-        $Slide['pubdate'] = date('d/m/Y H:i:s', strtotime($Slide['post_date']));
-        $View->Show($Slide, $tpl_banner);
-    endforeach;
-endif;
-?>
+<div class="banner container">
+    <h1 class="oculto">Venha conhecer e aprender sobre o mundo da tecnologia com fernando web developer!</h1>
+    <?php
+    $cat = Check::CatByName('noticias');
+    $post = new Read;
+    $post->ExeRead("fwd_posts", "WHERE post_status = 1 AND (post_cat_parent = :cat OR post_category = :cat) ORDER BY post_date DESC LIMIT :limit OFFSET :offset", "cat={$cat}&limit=1&offset=0");
+    if (!$post->getResult()):
+        FWDErro('Desculpe, ainda não existem noticias cadastradas. Favor volte mais tarde!', FWD_INFOR);
+    else:
+        foreach ($post->getResult() as $Slide):
+            $Slide['post_title'] = Check::Words($Slide['post_title'], 4);
+            $Slide['post_content'] = Check::Words($Slide['post_content'], 16);
+            $Slide['datetime'] = date('Y-m-d', strtotime($Slide['post_date']));
+            $Slide['pubdate'] = date('d/m/Y H:i:s', strtotime($Slide['post_date']));
+            $View->Show($Slide, $tpl_banner);
+        endforeach;
+    endif;
+    ?>
+</div>
 <!--FIM DO BANNER-->
 
 <!--INICIO DAS ULTIMAS NOTICIAS-->
-<section class="servicos container">     
+<main class="servicos container">
     <h1 class="oculto">Útimas do site!</h1>
     <?php
     $destaques = new Read();
@@ -40,9 +43,9 @@ endif;
             $View->Show($destaquesMaisVistos, $tpl_ultimas);
         endforeach;
     endif;
-    ?>  
+    ?> 
 
-</section>
+</main>
 <!--FIM DAS UTIMAS NOTICIAS-->
 
 

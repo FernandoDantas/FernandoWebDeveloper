@@ -7,7 +7,7 @@ a img{border: none;}
 ul{list-style: none;}
 img{max-width: 100%; vertical-align: middle;}
 .oculto{font-size: 0px; margin: 0px; padding: 0px; width: 0px; height: 0px; }
-time{color: #fff; background-color: #00324A;}
+.datapost{color: #fff; background-color: #00324A; padding: 10px;  margin: 0;}
 
 /*===== CSS DESENVOLVIDO NA ESCALA DE 320 =======*/
 /*====== CONTAINNER =======*/
@@ -41,9 +41,9 @@ time{color: #fff; background-color: #00324A;}
 /*BANNER*/
 .banner{background: url(../images/bg.png) no-repeat fixed;}
 .title{width: 100%;}
-.title h2 a{font-size:  2.5em; color: #fff; font-weight: 700;}
+.title h2 a{font-size:  1.5em; color: #fff; font-weight: 700;}
 .title h3{font-size: 1.5em; color: #fff;}
-.slide{width: 100%; margin-top:  2%;}
+.slide img{width: 100%; margin-top:  2%; margin-right: 2%;}
 
 
 /*SERVIÇOS*/
@@ -110,8 +110,8 @@ time{color: #fff; background-color: #00324A;}
 .title h3{font-size: 2em;}
 .slide{width: 30%; float: right; margin-top: 0;}
 .servico{width: 32%;}
-.servico:nth-child(2){margin-right: 2%;}  /*PseudoClasse que aplica ao css em um determinado elemento que no caso é o segundo elemento onde colocamos margin-right: 2%;*/
-.servico:nth-child(3){margin-right: 0;} /*PseudoClasse que aplica ao css em um determinado elemento que no caso é o terceiro elemento onde colocamos margin-right: 0;*/
+.servico:nth-child(2){margin-right: 1%;}  /*PseudoClasse que aplica ao css em um determinado elemento que no caso é o segundo elemento onde colocamos margin-right: 2%;*/
+.servico:nth-child(3){margin-right: 1%;} /*PseudoClasse que aplica ao css em um determinado elemento que no caso é o terceiro elemento onde colocamos margin-right: 0;*/
 .newslatter input{width: 60%; float: none;}
 .newslatter button{width: 20%; float: none;}
 }
