@@ -25,6 +25,14 @@ $tpl_ultimas = $View->Load('article_ultimas');
     ?>
 </div>
 <!--FIM DO BANNER-->
+<section class="sharebook">
+    <ul>
+        <li>Facebook</li>
+         <li>Twitter</li>
+          <li>Google+</li>
+           <li>GitHub</li>
+    </ul> 
+</section>
 
 <!--INICIO DAS ULTIMAS NOTICIAS-->
 <main class="servicos container">
