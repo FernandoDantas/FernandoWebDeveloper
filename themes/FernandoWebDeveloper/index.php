@@ -25,14 +25,6 @@ $tpl_ultimas = $View->Load('article_ultimas');
     ?>
 </div>
 <!--FIM DO BANNER-->
-<section class="sharebook">
-    <ul>
-        <li>Facebook</li>
-         <li>Twitter</li>
-          <li>Google+</li>
-           <li>GitHub</li>
-    </ul> 
-</section>
 
 <!--INICIO DAS ULTIMAS NOTICIAS-->
 <main class="servicos container">
@@ -56,6 +48,29 @@ $tpl_ultimas = $View->Load('article_ultimas');
 </main>
 <!--FIM DAS UTIMAS NOTICIAS-->
 
+<section>
+    <h1 class="oculto">Compartilhe nas redes sociais!</h1>
+    <ul class="sharebook">
+    <li class="like facebook">
+        <span class="count">542</span>
+        <a href="http://www.fernandowebdeveoper.com.br" title="Compartilhe no Facebook!">Compartilhe no 
+            <span>Facebook!</span>
+        </a>
+    </li>    
+    <li class="like google" >
+        <span class="count">1521</span>
+        <a href="http://www.fernandowebdeveoper.com.br" title="Recomende no Google!">Recomende no 
+            <span>Google!</span>
+        </a>
+    </li>
+    <li class="like twitter">
+        <span class="count">1</span>
+        <a href="http://www.fernandowebdeveoper.com.br" title="Twitter">Conte isto no 
+            <span>Twitter!</span>
+        </a>
+    </li>    
+    </ul> 
+</section>
 
 <!-- NEWSLETTER-->
 <section class="newslatter container">

@@ -6,6 +6,7 @@
         <a href="#" title="Twitter"><i class="fa fa-twitter"></i></a> 
         <a href="#" title="Google+"><i class="fa fa-google"></i></a> 
         <a href="#" title="Linkedin"><i class="fa fa-linkedin"></i></a> 
+        <a href="#" title="Github"><i class="fa fa-github"></i></a>
         <a href="#" title="Email"><i class="fa fa-envelope"></i></a>                
     </div>
     <p class="copyright">

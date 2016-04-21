@@ -14,7 +14,7 @@ $Session = new Session;
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Fernando Web Developer :: Desnvolvimento de sites e sistemas web</title>        
+        <title>Fernando Web Developer :: Desenvolvimento de sites e sistemas web</title>        
         <meta name="description" content="Tenha seu site pessoal, blog ou até mesmo um aplicativo ou sistema web personalizado para sua empresa!! "/>
         <meta name="keywords" content="Desenvolvimento de sistemas web, Sites e aplicativos mobile."/>
         <meta name="robots" content="index, follow"/>        
