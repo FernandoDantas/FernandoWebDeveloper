@@ -38,8 +38,15 @@ img{max-width: 100%; vertical-align: middle;}
 .menu li a{font-size: 2em; color: #fff; padding: 1.5% 3%;}
 .menu li a:hover{border: 1px solid #da6709;}
 
+/*PESQUISA*/
+ul .search{margin: 15px 46px 6px 4px;}
+ul .search form{float: right; width: 201px; background: #fff;}
+ul .search .fls{float: left; border: none; padding: 5px; width: 165px; border: none; height: 25px;}
+ul .search .btn{float: right; width: 26px; height: 26px; border: none; background: #fff url('../images/header_search_btn.png') center center no-repeat; cursor: pointer;}
+ul .search .btn:hover{background-color: #56a156;}
+
 /*BANNER*/
-.banner{background: url(../images/bg.png) no-repeat fixed;}
+.banner{background: url(../images/bg.png) no-repeat fixed; background-size:100% 100%;}
 .title{width: 100%;}
 .title h2 a{font-size:  1.5em; color: #fff; font-weight: 700;}
 .title h3{font-size: 1.5em; color: #fff;}
@@ -55,7 +62,7 @@ img{max-width: 100%; vertical-align: middle;}
 
 /*SAHRE BOOK*/
 .sharebook{float: left; width: 100%; background: #333; text-align: center; padding: 20px;}
-.sharebook .like{display: inline-block; min-width: 20%; position: relative; margin: 0 1%; background: #069; color: #fff; font-size: 0.7em; text-transform: uppercase;}
+.sharebook .like{display: inline-block; min-width: 100%; position: relative; margin: 0 0 15px 0; background: #069; color: #fff; font-size: 0.7em; text-transform: uppercase;}
 .sharebook .like a{float: left; color: #fff; width: 100%; padding: 60px 20px 20px 20px; background-repeat: no-repeat; background-position: top 20px center;}
 .sharebook .like a span{display: block;}
 .sharebook .like .count{position: absolute; top: 0; left: 0; padding: 5px 10px; background: rgba(0,0,0,0.5);}
@@ -79,7 +86,7 @@ img{max-width: 100%; vertical-align: middle;}
 .sharemin .twitter{background-color: #54A4D6;}
 
 /* NEWSLETTER*/
-.newslatter{background: url(../images/bgnewslatter.jpg) no-repeat fixed;}
+.newslatter{background: url(../images/bgnewslatter.jpg) no-repeat fixed; background-size:100% 100%;}
 .newslatter h2 {font-size: 1.5em; color: #fff; font-weight: 700;}
 .newslatter h3{color: #fff;}
 .newslatter form{margin-top: 2%;}
@@ -87,7 +94,7 @@ img{max-width: 100%; vertical-align: middle;}
 .newslatter button{width: 100%; color: #130400; padding: 5%; cursor: pointer; margin-top: 2%;}
 
 /*CONTATO*/
-.contato{background: url(../images/newslatter.jpg) no-repeat fixed;}
+.contato{background: url(../images/bgnewslatter.jpg) no-repeat fixed; background-size:100% 100%;}
 .contato h1 {font-size: 1.5em; color: #fff; font-weight: 700;}
 .contato h3{color: #fff;}
 .contato form{margin-top: 2%;}
@@ -117,7 +124,8 @@ img{max-width: 100%; vertical-align: middle;}
 
 /* =========== MOBILE FIRST ============*/
 /*  SMALL DEVICES - SMARTPHONES */
-@media screen and (min-width: 480px){    
+@media screen and (min-width: 480px){
+     ul .search{margin: 15px 126px 6px 4px;}
     .logo{width: 214px; background: url(../images/logo-fwd.png) center center/214px no-repeat;}
     .btn{font-size: 2em;}    
     .newslatter button{font-size: 2em;}
@@ -125,9 +133,11 @@ img{max-width: 100%; vertical-align: middle;}
     .contato input {font-size: 2em;}
     .contato textArea {font-size: 2em;}
     .contato button{font-size: 2em;}
+    .sharebook .like{display: inline-block; min-width: 20% !important; position: relative; margin: 0 0 15px 0; background: #069; color: #fff; font-size: 0.7em; text-transform: uppercase;}
 }
 /*  SMALL DEVICES - TABLETS */
-@media screen and (min-width: 768px){    
+@media screen and (min-width: 768px){  
+     ul .search{margin: 15px 268px 6px 4px;}
     .servico{width: 49%; float: left;}
     .servico:nth-child(2){margin-right: 11px;}  /*PseudoClasse que aplica ao css em um determinado elemento que no caso é o segundo elemento onde colocamos margin-right: 0;*/
     .newslatter h2{font-size: 2em;}
@@ -140,9 +150,11 @@ img{max-width: 100%; vertical-align: middle;}
     .contato textArea{width: 70%; padding: 2%; float: right; margin-right: 1%; margin-top: 2%;}
     .contato button{width: 29%; padding: 2%; float: right; margin-top: 2%;}
     .spaninfo{float: left; margin-top: 6%;}
+    .sharebook .like{display: inline-block; min-width: 30% !important; position: relative; margin: 0 0 15px 0; background: #069; color: #fff; font-size: 0.7em; text-transform: uppercase;}
 }
 /*  MEDIUM DEVICES - TABLETS  & DESKTOPS*/
-@media screen and (min-width: 960px){        
+@media screen and (min-width: 960px){ 
+     ul .search{margin: 15px 360px 6px 4px;}
     .title{width: 70%; float: left; text-align: left;} 
     .title h2{font-size: 2.5em;}
     .title h3{font-size: 1.5em;}
@@ -151,11 +163,12 @@ img{max-width: 100%; vertical-align: middle;}
     .servico:nth-child(2){margin-right: 1%;}  /*PseudoClasse que aplica ao css em um determinado elemento que no caso é o segundo elemento onde colocamos margin-right: 2%;*/
     .servico:nth-child(3){margin-right: 1%;} /*PseudoClasse que aplica ao css em um determinado elemento que no caso é o terceiro elemento onde colocamos margin-right: 0;*/
     .newslatter input{width: 60%; float: none;}
-    .newslatter button{width: 20%; float: none;}
+    .newslatter button{width: 20%; float: none;}    
 }
 
 /*MOST NETBOOKS*/
 @media screen and (min-width: 1024px){
+     ul .search{margin: 15px 393px 6px 4px;}
     .title h2 a{font-size:  1.1em;}
     .title h3{font-size: 1.5em; color: #fff;}
     .slide img{width: 100%; margin-top:  2%; margin-right: 2%;}
@@ -168,35 +181,36 @@ img{max-width: 100%; vertical-align: middle;}
 @media screen and (min-width: 1280px){        
     .btn-menu{display: none;}
     .btn-close{display:none;}
+     ul .search{margin: 15px 5px 6px 4px}
     .title h2 a{font-size:  2.1em;}
     .title h3{font-size: 1.5em; color: #fff;}
     .menu{width: auto; height: 56px; line-height: 56px; float: right; background-color: #00324A; display: block !important; position: static;}
     .menu li{padding: 0; float: left;}
     .menu li a{color:#FFFFFF; font-size: 1em; padding: 15px;}
     .menu li a:hover{border: none; background-color: #337ab7;}
-    
+
     /*SAHRE BOOK*/
-.sharebook{float: left; width: 100%; background: #333; text-align: center; padding: 20px;}
-.sharebook .like{display: inline-block; min-width: 20%; position: relative; margin: 0 1%; background: #069; color: #fff; font-size: 0.7em; text-transform: uppercase;}
-.sharebook .like a{float: left; color: #fff; width: 100%; padding: 60px 20px 20px 20px; background-repeat: no-repeat; background-position: top 20px center;}
-.sharebook .like a span{display: block;}
-.sharebook .like .count{position: absolute; top: 0; left: 0; padding: 5px 10px; background: rgba(0,0,0,0.5);}
+    .sharebook{float: left; width: 100%; background: #333; text-align: center; padding: 20px;}
+    .sharebook .like{display: inline-block; min-width: 20% !important; position: relative; margin: 0 1%; background: #069; color: #fff; font-size: 0.7em; text-transform: uppercase;}
+    .sharebook .like a{float: left; color: #fff; width: 100%; padding: 60px 20px 20px 20px; background-repeat: no-repeat; background-position: top 20px center;}
+    .sharebook .like a span{display: block;}
+    .sharebook .like .count{position: absolute; top: 0; left: 0; padding: 5px 10px; background: rgba(0,0,0,0.5);}
 
-.sharebook .facebook a{background-image: url(../images/share_facebook.png); background-color: #3B5998;}
-.sharebook .facebook a:hover{background-color: #7A95CB;}
-.sharebook .google a{background-image: url(../images/share_google.png); background-color: #D73D32;}
-.sharebook .google a:hover{background-color: #E7867E;}
-.sharebook .twitter a{background-image: url(../images/share_twitter.png); background-color: #54A4D6;}
-.sharebook .twitter a:hover{background-color: #81C1E9;}
+    .sharebook .facebook a{background-image: url(../images/share_facebook.png); background-color: #3B5998;}
+    .sharebook .facebook a:hover{background-color: #7A95CB;}
+    .sharebook .google a{background-image: url(../images/share_google.png); background-color: #D73D32;}
+    .sharebook .google a:hover{background-color: #E7867E;}
+    .sharebook .twitter a{background-image: url(../images/share_twitter.png); background-color: #54A4D6;}
+    .sharebook .twitter a:hover{background-color: #81C1E9;}
 
-.sharemin{float: left; width: 100%; padding: 20px; background: #fff;}
-.sharemin .sharebook{background: none; margin: 0 !important; padding: 0;}
-.sharemin .like{float: left; text-align: left; width: 100%; background: none; margin: 0 !important;}
-.sharemin .like .count{position: relative; text-align: center; width: 20%; float: left; padding: 10px;}
-.sharemin  .like a{width: 80%; padding: 10px; background-image: none;}
-.sharemin  .like a span{display: inline;}
+    .sharemin{float: left; width: 100%; padding: 20px; background: #fff;}
+    .sharemin .sharebook{background: none; margin: 0 !important; padding: 0;}
+    .sharemin .like{float: left; text-align: left; width: 100%; background: none; margin: 0 !important;}
+    .sharemin .like .count{position: relative; text-align: center; width: 20%; float: left; padding: 10px;}
+    .sharemin  .like a{width: 80%; padding: 10px; background-image: none;}
+    .sharemin  .like a span{display: inline;}
 
-.sharemin .facebook{background-color: #3B5998;}
-.sharemin .google{background-color: #D73D32;}
-.sharemin .twitter{background-color: #54A4D6;}
+    .sharemin .facebook{background-color: #3B5998;}
+    .sharemin .google{background-color: #D73D32;}
+    .sharemin .twitter{background-color: #54A4D6;}
 }

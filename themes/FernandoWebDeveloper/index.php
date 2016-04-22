@@ -53,19 +53,19 @@ $tpl_ultimas = $View->Load('article_ultimas');
     <ul class="sharebook">
     <li class="like facebook">
         <span class="count">542</span>
-        <a href="http://www.fernandowebdeveoper.com.br" title="Compartilhe no Facebook!">Compartilhe no 
+        <a href="http://www.fernandowebdeveloper.com.br" title="Compartilhe no Facebook!">Compartilhe no 
             <span>Facebook!</span>
         </a>
     </li>    
     <li class="like google" >
         <span class="count">1521</span>
-        <a href="http://www.fernandowebdeveoper.com.br" title="Recomende no Google!">Recomende no 
+        <a href="http://www.fernandowebdeveloper.com.br" title="Recomende no Google!">Recomende no 
             <span>Google!</span>
         </a>
     </li>
     <li class="like twitter">
         <span class="count">1</span>
-        <a href="http://www.fernandowebdeveoper.com.br" title="Twitter">Conte isto no 
+        <a href="http://www.fernandowebdeveloper.com.br" rel="&hashtags=BoraDesenvolver&text=Fernando Web Developer - Desenvolvimento, suporte e assistencia em sistemas Web!&" title="Conte isto no Twitter!">Conte isto no 
             <span>Twitter!</span>
         </a>
     </li>    
