@@ -30,20 +30,27 @@ img{max-width: 100%; vertical-align: middle;}
 .logo{width: 56px; height: 56px; float: left; background: url(../images/logo-mobile.png) center center/56px no-repeat; font-size: 0;}
 .btn-menu{width: 56px; height: 56px; float: right; text-align: center; color: #fff; border-radius: 56px; cursor: pointer;}
 
-/*MENU*/
-.menu{display: none; width: 100%; height: 100%; position: fixed; background-color:  rgba(0,0,0,0.9); top: 0; left: 0; overflow: auto;}
-.btn-close{font-size: 1.5em; color: #fff; float: right; cursor: pointer; margin: 2% 3% 0 0;}
-.menu ul{width: 100%; float: left; text-align: center;}
-.menu li {padding: 1.5%;}
-.menu li a{font-size: 2em; color: #fff; padding: 1.5% 3%;}
-.menu li a:hover{border: 1px solid #da6709;}
+/*MENU MOBILE*/
+.mobile_action{width: 46px; height: 46px; margin: 10px 0 0 0; float: right; cursor: pointer; background: #1a5977 url(../images/mobile.png) center center no-repeat; border-radius: 50%;
+               -moz-border-radius: 50%;  -webkit-border-radius: 50%;}
+.mobile_action.active{ background-color: #000;}
+.mobile_action:hover{background-color: #fff;}
 
-/*PESQUISA*/
-ul .search{margin: 15px 46px 6px 4px;}
-ul .search form{float: right; width: 201px; background: #fff;}
-ul .search .fls{float: left; border: none; padding: 5px; width: 165px; border: none; height: 25px;}
-ul .search .btn{float: right; width: 26px; height: 26px; border: none; background: #fff url('../images/header_search_btn.png') center center no-repeat; cursor: pointer;}
-ul .search .btn:hover{background-color: #56a156;}
+@media (max-width: 79.9375em){
+    .main_header_nav{position: fixed; left: -100%; top: 0; width: 76%; height: 100%; min-width: 200px; max-width: 360px; background: #222; z-index: 99; overflow: hidden; overflow-y: auto;}
+    .main_header_nav_search{float: left; width: 100%; background: #000; padding: 31px 15px; font-size:130%;}
+    .main_header_nav_item{float: left; width: 100%; position: relative;}
+    .main_header_nav_item > a{ float: left; width: 100%; padding: 15px; text-transform: uppercase; text-decoration: none; color: #eee; font-weight: bold;}
+    .main_header_nav_item:hover,  .main_header_nav_item > a:hover{ background: #444; color: #fff;}
+    .main_header_nav_sub{ float: left; width: 100%; padding: 10px; background: #333;}
+    .main_header_nav_sub_item{ float: left; width: 100%;}
+    .main_header_nav_sub_item a{ float: left; width: 100%; padding: 15px; text-transform: uppercase; text-decoration: none; color: #fff;}
+    .main_header_nav_sub_item a:hover{background: #007FFF; }
+}
+
+.main_header_nav_search .s{float: left; width: 80%; border: none;}
+.main_header_nav_search .b{float: right; width: 20%; border: none; cursor: pointer; background: url(../images/search.png) center center no-repeat;}
+
 
 /*BANNER*/
 .banner{background: url(../images/bg.png) no-repeat fixed; background-size:100% 100%;}
@@ -104,6 +111,13 @@ ul .search .btn:hover{background-color: #56a156;}
 .limpar{width: 30%; padding: 12px 12px 12px 12px; background-color: #DC5050; color: #FFFFFF; float: right; cursor: pointer; margin-top: 2%; margin: 5px 5px 5px 5px;}
 .enviar{width: 30%; padding:12px 12px 12px 12px; background-color: #337AB7; color: #FFFFFF; float: right; cursor: pointer; margin-top: 2%; margin: 5px 5px 5px 5px;}
 
+
+/*PAGER NOT FOUND*/
+.page_notfound{text-align: center;}
+.page_notfound .notfounerror{font-family: 'Baumans', cursive; color: #969696; font-size: 150px; text-align: center; display: block; margin: 0 auto;}
+.page_notfound header h1{font-family: 'Baumans', cursive; font-size: 50px; color: #FF6A6A;}
+.page_notfound header p{font-family: 'Baumans', cursive; font-size: 16px; color: #666;}
+
 /* RODAPÉ*/
 .social-icons a{font-size: 1.5em; color:  rgba(255,255,255,0.7); margin-right: 3%;}
 .social-icons a:last-child {margin-right: 0;}
@@ -124,8 +138,7 @@ ul .search .btn:hover{background-color: #56a156;}
 
 /* =========== MOBILE FIRST ============*/
 /*  SMALL DEVICES - SMARTPHONES */
-@media screen and (min-width: 480px){
-     ul .search{margin: 15px 126px 6px 4px;}
+@media screen and (min-width: 480px){    
     .logo{width: 214px; background: url(../images/logo-fwd.png) center center/214px no-repeat;}
     .btn{font-size: 2em;}    
     .newslatter button{font-size: 2em;}
@@ -136,8 +149,7 @@ ul .search .btn:hover{background-color: #56a156;}
     .sharebook .like{display: inline-block; min-width: 20% !important; position: relative; margin: 0 0 15px 0; background: #069; color: #fff; font-size: 0.7em; text-transform: uppercase;}
 }
 /*  SMALL DEVICES - TABLETS */
-@media screen and (min-width: 768px){  
-     ul .search{margin: 15px 268px 6px 4px;}
+@media screen and (min-width: 768px){   
     .servico{width: 49%; float: left;}
     .servico:nth-child(2){margin-right: 11px;}  /*PseudoClasse que aplica ao css em um determinado elemento que no caso é o segundo elemento onde colocamos margin-right: 0;*/
     .newslatter h2{font-size: 2em;}
@@ -153,8 +165,7 @@ ul .search .btn:hover{background-color: #56a156;}
     .sharebook .like{display: inline-block; min-width: 30% !important; position: relative; margin: 0 0 15px 0; background: #069; color: #fff; font-size: 0.7em; text-transform: uppercase;}
 }
 /*  MEDIUM DEVICES - TABLETS  & DESKTOPS*/
-@media screen and (min-width: 960px){ 
-     ul .search{margin: 15px 360px 6px 4px;}
+@media screen and (min-width: 960px){    
     .title{width: 70%; float: left; text-align: left;} 
     .title h2{font-size: 2.5em;}
     .title h3{font-size: 1.5em;}
@@ -167,8 +178,7 @@ ul .search .btn:hover{background-color: #56a156;}
 }
 
 /*MOST NETBOOKS*/
-@media screen and (min-width: 1024px){
-     ul .search{margin: 15px 393px 6px 4px;}
+@media screen and (min-width: 1024px){    
     .title h2 a{font-size:  1.1em;}
     .title h3{font-size: 1.5em; color: #fff;}
     .slide img{width: 100%; margin-top:  2%; margin-right: 2%;}
@@ -177,18 +187,27 @@ ul .search .btn:hover{background-color: #56a156;}
     .spaninfo{margin: 0;}
 }
 
-/*  LARGE DEVICES - WIDE SCREENS*/
-@media screen and (min-width: 1280px){        
-    .btn-menu{display: none;}
-    .btn-close{display:none;}
-     ul .search{margin: 15px 5px 6px 4px}
+/*  LARGE DEVICES - WIDE SCREENS MENU 1280PX BREAKPOINT*/
+@media screen and (min-width: 1280px){ 
+    .mobile_action{display: none;}
+    .main_header_nav{float: right; width: 80%; text-align: right; margin-top: 20px;}
+    .main_header_nav_item{position: relative; display: inline-block; margin-right: 10px;}
+    .main_header_nav_item:last-of-type{margin-right: 20px;}
+    .main_header_nav_item > a{ float: left; padding: 7px; text-transform: uppercase; text-decoration: none; color: #fff; font-weight: bold;}
+    .main_header_nav_item:hover,  .main_header_nav_item > a:hover{background: #007FFF;}
+    .main_header_nav_search{float: right; width: 21%; font-size: 130%;}
+    .main_header_nav_sub{display: none; position: absolute; top: 100%; left: 0; width: 300%; background: #fff; padding: 10px; text-align: left; z-index: 99;}    
+    .main_header_nav_item:hover .main_header_nav_sub,  .main_header_nav_item > a:hover .main_header_nav_sub{display: block;}    
+    .main_header_nav_sub_item{float: left; width: 50%;}    
+    .main_header_nav_sub_item a{float: left; width: 100%; padding: 10px; text-decoration: none; text-transform: uppercase; color: #333;}    
+    .main_header_nav_sub_item a:hover{background: #007FFF; color: #fff;}    
+    
     .title h2 a{font-size:  2.1em;}
     .title h3{font-size: 1.5em; color: #fff;}
-    .menu{width: auto; height: 56px; line-height: 56px; float: right; background-color: #00324A; display: block !important; position: static;}
-    .menu li{padding: 0; float: left;}
-    .menu li a{color:#FFFFFF; font-size: 1em; padding: 15px;}
-    .menu li a:hover{border: none; background-color: #337ab7;}
-
+    
+    /*PAGER NOT FOUND*/
+    .page_notfound .notfounerror{font-size: 200px;}
+    
     /*SAHRE BOOK*/
     .sharebook{float: left; width: 100%; background: #333; text-align: center; padding: 20px;}
     .sharebook .like{display: inline-block; min-width: 20% !important; position: relative; margin: 0 1%; background: #069; color: #fff; font-size: 0.7em; text-transform: uppercase;}

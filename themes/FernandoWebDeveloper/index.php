@@ -33,7 +33,7 @@ $tpl_ultimas = $View->Load('article_ultimas');
     $destaques = new Read();
     $destaques->ExeRead("fwd_posts", "WHERE post_status = 1 ORDER BY post_views DESC, post_date DESC LIMIT 3");
     if (!$destaques->getResult()):
-        FWDErro("Desulculpe, nenhum projeto em destaque neste momento. Favor volte depois!", FWD_INFOR);
+        FWDErro("Desulculpe, nenhuma noticia em destaque neste momento. Favor volte depois!", FWD_INFOR);
     else:
         foreach ($destaques->getResult() as $destaquesMaisVistos):
             $destaquesMaisVistos['post_title'] = Check::Words($destaquesMaisVistos['post_title'], 12);
