@@ -20,8 +20,8 @@ define('SITEDESC', 'Tenha seu site pessoal, blog ou até mesmo um aplicativo ou 
 define('HOME', 'http://localhost/FernandoWebDeveloper');
 define('THEME', 'FernandoWebDeveloper');
 
-define('INCLUDE_PATH', HOME . '/themes/' . THEME);
-//define('INCLUDE_PATH', HOME . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . THEME);
+//define('INCLUDE_PATH', HOME . '/themes/' . THEME);
+define('INCLUDE_PATH', HOME . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . THEME);
 define('REQUIRE_PATH', 'themes' . DIRECTORY_SEPARATOR . THEME);
 
 

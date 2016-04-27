@@ -6,7 +6,7 @@ else:
 endif;
 ?>
 <!--HOME CONTENT-->
-<div class="site-container">
+<div class="container">
 
     <article class="page_article">
 

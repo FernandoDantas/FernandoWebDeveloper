@@ -118,12 +118,11 @@ class Check {
      */
     public static function Image($ImageUrl, $ImageDesc, $ImageW = null, $ImageH = null) {
 
-        self::$Data = 'uploads/' . $ImageUrl;
+        self::$Data = $ImageUrl;
 
         if (file_exists(self::$Data) && !is_dir(self::$Data)):
             $patch = HOME;
             $imagem = self::$Data;
-            //return $patch . $imagem;
             return "<img src=\"{$patch}/tim.php?src={$patch}/{$imagem}&w={$ImageW}&h={$ImageH}\" alt=\"{$ImageDesc}\" title=\"{$ImageDesc}\"/>";
         else:
             return false;
