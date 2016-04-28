@@ -7,27 +7,24 @@ endif;
 ?>
 <!--HOME CONTENT-->
 <div class="container">
-
     <article class="page_article">
-
         <div class="art_content">
             <!--CABEÇALHO GERAL-->
             <header>
                 <hgroup>
-                    <h1><?= $post_title; ?></h1>
+                    <h1 class="articleTitulo"><?= $post_title; ?></h1>
                     <div class="img capa">
                         <!--w 578 [CRIAR TUMB]-->
                         <?= Check::Image('uploads' . DIRECTORY_SEPARATOR . $post_cover, $post_title, 578); ?>
                     </div>
-                    <time datetime="<?= date('Y-m-d', strtotime($post_date)); ?>" pubdate>Enviada em: <?= date('d/m/Y H:i:s', strtotime($post_date)); ?>Hs</time>
+                    <time class="timeArticle" datetime="<?= date('Y-m-d', strtotime($post_date)); ?>" pubdate>Enviada em: <?= date('d/m/Y H:i:s', strtotime($post_date)); ?>Hs</time>
                 </hgroup>
             </header>
 
             <!--CONTEUDO-->
             <div class="htmlchars">
-                <?= $post_content; ?>
-
-                <!--GALERIA-->
+                <?= $post_content; ?>   
+              <!--GALERIA-->
                 <?php
                 $readGb = new Read;
                 $readGb->ExeRead("fwd_posts_gallery", "WHERE post_id = :postid ORDER BY gallery_date DESC", "postid={$post_id}");
@@ -37,7 +34,7 @@ endif;
                         <hgroup>
                             <h3>
                                 GALERIA:
-                                <p class="tagline">Veja fotos em <mark><?= $post_title; ?></mark></p>
+                                <p>Veja fotos em <mark><?= $post_title; ?></mark></p>
                             </h3>
                         </hgroup>
 
@@ -49,7 +46,7 @@ endif;
                                 extract($gallery);
                                 ?>
                                 <li>
-                                    <div class="img">
+                                    <div>
                                         <a href="<?= HOME; ?>/uploads/<?= $gallery_image; ?>" rel="shadowbox[<?= $post_id; ?>]" title="Imagem <?= $gb; ?> do post <?= $post_title; ?>">
                                             <?= Check::Image('uploads' . DIRECTORY_SEPARATOR . $gallery_image, "Imagem {$gb} do post {$post_title}", 120, 80); ?>
                                         </a>
@@ -59,11 +56,31 @@ endif;
                             endforeach;
                             ?>
                         </ul>
-                        <div class="clear"></div>
+
                     </section>
                 <?php endif; ?>
-            </div>
+            </div>            
+                 <?php
+                $linkSocial = new Read;
+                $linkSocial->ExeRead("fwd_posts", "WHERE post_status = 1 AND post_id = :id AND post_category = :cat ORDER BY rand() LIMIT 2", "id={$post_id}&cat={$post_category}");
+                if ($linkSocial->getResult()):
+                    $View = new View;
+                    $tpl_social = $View->Load('article_social');
+                    ?>
 
+                    <section>
+                        <h1 class="oculto">Compartilhe nas redes sociais!</h1>
+                        <?php
+                        foreach ($linkSocial->getResult() as $social):
+                            $social['post_name'] = Check::Words($social['post_name'], 4);
+                        $View->Show($social, $tpl_social);
+                        endforeach;
+                        ?>                        
+                    </section>
+                    <?php
+                endif;
+                ?>          
+        
             <!--RELACIONADOS-->
             <?php
             $readMore = new Read;
@@ -85,19 +102,19 @@ endif;
                         endforeach;
                         ?>
                     </nav>
-                    <div class="clear"></div>
+
                 </footer>
                 <?php
             endif;
             ?>
             <!--Comentários aqui-->
-        </div><!--art content-->
+        </div><!--art content-->  
 
         <!--SIDEBAR-->
         <?php require(REQUIRE_PATH . '/inc/sidebar.inc.php'); ?>
 
-        <div class="clear"></div>
+
     </article>
 
-    <div class="clear"></div>
+
 </div><!--/ site container -->

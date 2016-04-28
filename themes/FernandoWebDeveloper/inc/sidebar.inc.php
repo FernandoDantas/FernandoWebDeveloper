@@ -7,14 +7,14 @@ $tpl_p = $View->Load('article_p');
 ?>
 
 <aside class="main-sidebar">
-    <article class="ads">
+<!--    <article class="ads">
         <header>
-            <h1>Anúncio Patrocinado:</h1>
-            <a href="http://www.upinside.com.br/campus" title="Campus UpInside - Treinamentos em TI 100% em Vídeo aulas">
+            <h1 class="oculto">Anúncio Patrocinado:</h1>
+            <a href="http://www.fernandowebdeveloper.com.br" target="_blank" title="Fernando Web Developer - Desenvolviento de sites e sistemas web">
                 <img src="<?= INCLUDE_PATH; ?>/images/site.png" alt="FERNANDO WEB DEVELOPER" title="FERNANDO WEB DEVELOPER" />
             </a>
         </header>
-    </article>
+    </article>-->
 
     <section class="widget art-list last-publish">
         <h2 class="line_title"><span class="oliva">Últimas Atualizações:</span></h2>
