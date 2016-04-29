@@ -128,3 +128,12 @@ var link = 'http://www.fernandowebdeveloper.com.br';
 setTimeout(function () {
     notifyMe(icon, title, mensagem, link);
 }, 5000);
+
+//Plugin curtir do facebook
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.4&appId=1564500197147708";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));

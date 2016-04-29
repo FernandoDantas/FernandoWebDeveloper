@@ -7,14 +7,15 @@ $tpl_p = $View->Load('article_p');
 ?>
 
 <aside class="main-sidebar">
-<!--    <article class="ads">
+
+    <article class="ads">
         <header>
-            <h1 class="oculto">Anúncio Patrocinado:</h1>
-            <a href="http://www.fernandowebdeveloper.com.br" target="_blank" title="Fernando Web Developer - Desenvolviento de sites e sistemas web">
-                <img src="<?= INCLUDE_PATH; ?>/images/site.png" alt="FERNANDO WEB DEVELOPER" title="FERNANDO WEB DEVELOPER" />
-            </a>
+            <h1 class="line_title"><span class="azul">Fan Page</span></h1>
+            <div class="fb-page" data-href="https://www.facebook.com/Fernando-Dantas-1642038059364413" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
         </header>
-    </article>-->
+    </article>
+
+
 
     <section class="widget art-list last-publish">
         <h2 class="line_title"><span class="oliva">Últimas Atualizações:</span></h2>
