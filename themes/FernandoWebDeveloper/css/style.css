@@ -337,45 +337,13 @@ img{max-width: 100%; vertical-align: middle;}
     .sharemin .twitter{background-color: #54A4D6;}
 
     /*ARTIGOS*/
-    .articleTitulo{font-size: 1.5em; color: #130400; font-weight: 700; padding: 10px;}
-    .timeArticle{color: #797979; font-weight: 700; margin: 0 872px 0 0;}
-    .htmlchars .gallery{padding: 20px; margin: 10px; background-color: #2274B1;}
-    .htmlchars .gallery h3{font-size: 16px; display: block; text-transform: uppercase; color: #FFFFFF; margin: 0 0 15px;}
-    .htmlchars .gallery p{font-size: 14px; display: inline; margin: 0; font-family: 'Baumans', cursive; text-transform: none;}
-    .htmlchars .gallery p mark{background: none; font-family: 'Baumans', cursive; color: #000;}
-
-    .page_article .art_content footer{border-top: 1px groove #eee;}
-    .page_article .art_content footer{display: block; padding: 20px; background: #eee;}
-    .page_article .art_content footer h3{font-family: 'Baumans', cursive; font-size: 18px; display: inline; color: #FF6A6A; display: block; margin: 0 888px 8px 0; padding-bottom: 15px; border-bottom: 1px solid #ccc;}
-    .page_article .art_content footer article{ width: 250px;}
-    .page_article .art_content footer article img{max-width: 250px;}
-    .page_article .art_content footer article .img{max-width: 250px; height: 173px; margin: 0px 0px 0px -8px;}
-    .page_article .art_content footer article h1{font-size: 0; display: block; margin: 0 20px 0 0px;; padding: 0;}
-    .page_article .art_content footer article p{margin: 7px 71px -6px 0px;}
-    .page_article .art_content footer article time{color: #333; margin: 0 34px 0 0;}
-    .page_article .art_content footer article a{color: #70A50E; font-size: 18px; font-family: 'Baumans', cursive;}
-    .page_article .art_content footer article a:hover{color: #fff; background: #70A50E;}
+    /*ARTIGO*/    
+    .page_article .art_content footer article .img{margin: 8px -58px 0px 315px;}
+    .page_article .art_content footer article h1 {margin: 10px -528px 20px 93px;}  
+    .page_article .art_content footer article time {margin: 0 -461px 10px 163px;}   
+    .page_article .art_content footer article p{margin: 5px -627px -12px 0px;}
 
 
-    /*SIDEBAR*/
-    .main-sidebar{float: right; width: 300px;  margin: -452px 551px 6px 0;}
-    .main-sidebar .widget{margin-bottom: 20px;}
-    .main-sidebar .widget:last-child{margin-bottom: 0;}
-    .main-sidebar .widget .widget_title{font-size: 20px; color: #000; font-family: 'Baumans', cursive; text-transform: uppercase; margin-bottom: 10px; border-bottom: 5px solid #eee; padding-bottom: 3px;}
-    .main-sidebar .art-list article{float: left; width: 300px; margin-bottom: 15px;}
-    .main-sidebar .art-list article h1{font-size: 0px; margin-bottom: 5px;}
-    .main-sidebar .art-list article time{font-size: 12px; color: #4A4A4A;}
-    .main-sidebar .art-list article a{font-size: 14px; font-family: 'Baumans', cursive; color: blue;}
-    .main-sidebar .art-list article a:hover{color: #fff; background: blue;}
-    .main-sidebar .art-list .img{float: left; width: 120px; height: 80px; margin-right: 10px;}
-
-    .main-sidebar .last-publish article a{color: #16A085;}
-    .main-sidebar .last-publish article a:hover{color: #fff; background: #16A085;}
-
-    .main-sidebar .most-view article a{color: #FF6A6A;}
-    .main-sidebar .most-view article a:hover{color: #fff; background: #FF6A6A;}
-
-    .main-sidebar .ads h1{font-size: 20px; color: #000; font-family: 'Baumans', cursive; text-transform: uppercase; margin-bottom: 10px; padding-bottom: 3px;}
-    .main-sidebar .fb-page{width: 275px; margin: 48px 5px 5px 177px;}
+    
 
 }

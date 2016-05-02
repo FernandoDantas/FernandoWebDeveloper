@@ -25,6 +25,7 @@ $tpl_p = $View->Load('article_p');
             foreach ($Side->getResult() as $last):
                 $last['datetime'] = date('Y-m-d', strtotime($last['post_date']));
                 $last['pubdate'] = date('d/m/Y H:i:s', strtotime($last['post_date']));
+                $last['post_title'] = Check::Words($last['post_title'], 10);
                 $View->Show($last, $tpl_p);
             endforeach;
         endif;
@@ -39,6 +40,7 @@ $tpl_p = $View->Load('article_p');
             foreach ($Side->getResult() as $most):
                 $most['datetime'] = date('Y-m-d', strtotime($most['post_date']));
                 $most['pubdate'] = date('d/m/Y H:i:s', strtotime($most['post_date']));
+                $most['post_title'] = Check::Words($most['post_title'], 10);
                 $View->Show($most, $tpl_p);
             endforeach;
         endif;
